@@ -1,31 +1,35 @@
 import React from 'react';
 
+import MyInfoTop from './MyInfoTop';
 import MyInfoBottom from './MyInfoBottom';
 
-const service = [
+const dummyService = [
   {
     id: 1,
-    money: 12300,
+    price: 12300,
   },
   {
     id: 2,
-    money: 20000,
+    price: 20000,
   },
   {
     id: 3,
-    money: 7000,
+    price: 7000,
   },
 ];
 
 const MyInfo = () => {
-  const serviceCount = service.length;
-  const totalAmount = service.reduce((a, b) => a + b.money, 0);
+  const totalService = dummyService.length;
+  const totalAmount = dummyService.reduce((a, b) => a + b.price, 0);
 
   return (
-    <MyInfoBottom
-      serviceCount={serviceCount}
-      totalAmount={totalAmount}
-    />
+    <>
+      <MyInfoTop />
+      <MyInfoBottom
+        totalService={totalService}
+        totalPrice={totalAmount}
+      />
+    </>
   );
 };
 

@@ -2,22 +2,22 @@ import React from 'react';
 
 import * as S from './styled';
 
-import Detail from './Detail';
+import BottomDetail from './BottomDetail';
 
 interface IProps {
-  serviceCount: number;
-  totalAmount: number;
+  totalService: number;
+  totalPrice: number;
 }
 
-const MyInfoBottom: React.FC<IProps> = ({ serviceCount, totalAmount }) => (
+const MyInfoBottom: React.FC<IProps> = ({ totalService, totalPrice }) => (
   <S.BottomContainer>
-    <Detail
-      type="service"
-      amount={serviceCount}
+    <BottomDetail
+      type="totalService"
+      totalAmount={totalService}
     />
-    <Detail
-      type="total"
-      amount={totalAmount}
+    <BottomDetail
+      type="totalPrice"
+      totalAmount={totalPrice}
     />
   </S.BottomContainer>
 );
