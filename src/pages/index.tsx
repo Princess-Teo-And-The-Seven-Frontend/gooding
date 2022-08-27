@@ -1,7 +1,11 @@
 import type { NextPage } from 'next';
 
-import Header from '@/components/features/Header'
+import Header from '@/components/features/Header';
 
-const HomePage: NextPage = () => <div><Header /></div>;
+const HomePage: NextPage = () => (
+  <div>
+    <Header />
+  </div>
+);
 
 export default HomePage;
