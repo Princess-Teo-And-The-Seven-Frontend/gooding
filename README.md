@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1><p align="center">📮 구딩 📮<p></h1>
+<p align="center"><img width="89" alt="image" src="https://user-images.githubusercontent.com/73640737/187012652-0b73952f-cc8e-414c-9fc7-43a340014fc5.png">
+</p>
 
-## Getting Started
+| 구딩과 함께 한 눈에 편리하게 구독을 관리해보세요!
 
-First, run the development server:
+## 📕 배포 링크
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<링크>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📗 조원소개
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+|                             EASY                             |                          레프                           |                          Hyun                          |                         찌나오                         |                               준                               |                             Ayaan                             |                            나동                             |
+| :----------------------------------------------------------: | :-----------------------------------------------------: | :----------------------------------------------------: | :----------------------------------------------------: | :------------------------------------------------------------: | :-----------------------------------------------------------: | :---------------------------------------------------------: |
+| <img src="https://github.com/thinkanddoit.png" width="200"/> | <img src="https://github.com/anottrx.png" width="200"/> | <img src="https://github.com/qlemql.png" width="200"/> | <img src="https://github.com/zzinao.png" width="200"/> | <img src="https://github.com/Junseongparkme.png" width="200"/> | <img src="https://github.com/LEEHYUNHO2001.png" width="200"/> | <img src="https://github.com/Najeong-Kim.png" width="200"/> |
+|       [@thinkanddoit](https://github.com/thinkanddoit)       |         [@anottrx](https://github.com/anottrx)          |          [@qlemql](https://github.com/qlemql)          |          [@zzinao](https://github.com/zzinao)          |      [@Junseongparkme](https://github.com/Junseongparkme)      |      [@LEEHYUNHO2001](https://github.com/LEEHYUNHO2001)       |       [@Najeong-Kim](https://github.com/Najeong-Kim)        |
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 📘 프로젝트 소개
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 메인 페이지
 
-## Learn More
+<img width="474" alt="image" src="https://user-images.githubusercontent.com/73640737/187012811-d229299e-c45a-46ad-9cae-f67b50153220.png">
 
-To learn more about Next.js, take a look at the following resources:
+### 구독 추가 모달
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<img width="439" alt="image" src="https://user-images.githubusercontent.com/73640737/187012846-9ebecdf6-b4d0-4023-88d9-bf5845ece529.png">
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 내 구독 보기
 
-## Deploy on Vercel
+<img width="492" alt="image" src="https://user-images.githubusercontent.com/73640737/187012859-c3e995b7-d6f3-4231-9558-66e77397c54a.png">
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📙 개발 소개
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 프로젝트 과정
+
+[피그잼](https://www.figma.com/file/TkcVY7Nj8J1mNupusqx24h/%ED%85%8C%EC%98%A4%EC%9D%98-%EC%8A%A4%ED%94%84%EB%A6%B0%ED%8A%B8-11%EA%B8%B0---3%EC%A1%B0-%3C%EA%B5%AC%EB%94%A9%3E?node-id=0%3A1)
+
+### 기술스택
+
+<div align="center">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/><br>
+  <img src="https://img.shields.io/badge/Jest-C21325?style=flat-square&logo=Jest&logoColor=white"/>
+  <img src="https://img.shields.io/badge/React%20Testing%20Library-121212?style=flat-square&logo=Testing Library&logoColor=E33332"/>
+</div>
