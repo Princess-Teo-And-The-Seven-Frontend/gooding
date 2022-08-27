@@ -27,11 +27,11 @@ const MyInfoTop = () => {
     <S.CardContainer>
       <S.MyInfoTop>
         <S.YouText>당신은...</S.YouText>
-        <S.MyInfoText marginTop={`12`} fontSize={`20`}>
-          상위 {topPercent}%
+        <S.MyInfoText marginTop="12" fontSize="20">
+          {`상위 ${topPercent}%`}
         </S.MyInfoText>
-        <S.MyInfoText marginTop={`8`} fontSize={`36`}>
-          {nickname}!
+        <S.MyInfoText marginTop="8" fontSize="36">
+          {`${nickname}!`}
         </S.MyInfoText>
       </S.MyInfoTop>
     </S.CardContainer>

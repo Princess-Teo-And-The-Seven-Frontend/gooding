@@ -6,7 +6,7 @@ interface IDiv {
 }
 
 export const CardContainer = styled.div`
-  width: 408px;
+  width: 350px;
 `;
 
 export const MyInfoTop = styled.div`
@@ -14,7 +14,7 @@ export const MyInfoTop = styled.div`
   border-radius: 11px 11px 0 0;
   background-color: #7d70fa;
   padding: 37px 0 30px 26px;
-  box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.15);
+  box-shadow: 4px 0px 11px rgba(0, 0, 0, 0.15);
 `;
 
 export const YouText = styled.div`
