@@ -1,5 +1,17 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"],
+      "@pages/*": ["pages/*"],
+      "@styles/*": ["styles/*"],
+      "@components/*": ["components/*"],
+      "@constants/*": ["constants/*"],
+      "@utils/*": ["utils/*"],
+      "@hooks/*": ["hooks/*"],
+      "@types/*": ["types/*"],
+      "@states/*": ["states/*"]
+    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
