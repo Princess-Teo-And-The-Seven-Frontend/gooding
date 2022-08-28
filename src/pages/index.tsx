@@ -13,7 +13,7 @@ import { Login } from '@/components/features/Login';
 import { userNickname } from '@/store/atom';
 import { SERVICES } from '@/constants/index';
 import { getLocalstorage } from '@/utils';
-
+import MyPage from '@/components/features/MyPage';
 import * as S from '../styles/modalStyled';
 
 interface ISelectedServiceData {
@@ -25,6 +25,7 @@ interface ISelectedServiceData {
 }
 
 const HomePage: NextPage = () => {
+  const [isMain, setIsMain] = useState(true);
   const [nickname, setNickname] = useRecoilState(userNickname);
   const [isOpen, setIsOpen] = useState(false);
   const [first, setFirst] = useState(true);
@@ -73,9 +74,17 @@ const HomePage: NextPage = () => {
     <div>
       {nickname ? (
         <div>
-          <Header />
-          <CalendarContainer />
-          <Button onClick={onClick}>Open</Button>
+          <Header isMain={isMain} setIsMain={setIsMain} />
+          {isMain
+            ? (
+              <div>
+                <CalendarContainer />
+                <Button onClick={onClick}>Open</Button>
+              </div>
+            )
+            : (
+              <MyPage />
+            )}
           {isOpen && (
           <Modal width={1390} height={805}>
             <S.SubScribeContainer>
@@ -115,4 +124,5 @@ const HomePage: NextPage = () => {
     </div>
   );
 };
+
 export default HomePage;

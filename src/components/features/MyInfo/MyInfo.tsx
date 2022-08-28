@@ -3,30 +3,31 @@ import React from 'react';
 import MyInfoTop from './MyInfoTop';
 import MyInfoBottom from './MyInfoBottom';
 
-const dummyService = [
-  {
-    id: 1,
-    price: 12300,
-  },
-  {
-    id: 2,
-    price: 20000,
-  },
-  {
-    id: 3,
-    price: 7000,
-  },
-];
+interface serviceDataType {
+  category: string;
+  cycle: string;
+  date: string;
+  id: number;
+  image: string;
+  memo: string;
+  name: string;
+  price: string;
+  subscriptionFee: number;
+}
 
-const MyInfo = () => {
-  const totalService = dummyService.length;
-  const totalPrice = dummyService.reduce((a, b) => a + b.price, 0);
+interface IProps {
+  serviceData: serviceDataType[];
+}
+
+const MyInfo: React.FC<IProps> = ({ serviceData }) => {
+  const totalService = serviceData?.length;
+  const totalPrice = serviceData?.reduce((a, b) => a + +b.price, 0);
 
   return (
-    <>
-      <MyInfoTop />
-      <MyInfoBottom totalService={totalService} totalPrice={totalPrice} />
-    </>
+    <div>
+      <MyInfoTop totalService={totalService} />
+      <MyInfoBottom totalService={totalService || 0} totalPrice={totalPrice || 0} />
+    </div>
   );
 };
 
