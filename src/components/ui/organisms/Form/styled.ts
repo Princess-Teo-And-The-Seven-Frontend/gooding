@@ -6,12 +6,17 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  border: 1px solid black;
+  border: 0;
+  border-bottom: 1px solid #aaa;
   width: 100%;
   padding: 0.75rem 1.25rem;
   box-sizing: border-box;
   margin-bottom: 0.75rem;
-  border-radius: 5px;
+  resize: none;
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid #7D70FA;
+  }
 `;
 
 export const Title = styled.div`

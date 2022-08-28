@@ -10,23 +10,46 @@ interface IForm {
   cycle: string;
 }
 
-const handleClickRegisterButton = () => {
-  console.log('등록버튼 클릭');
-};
+interface ServiceType {
+  id: number;
+  name: string;
+  category: string;
+  subscriptionFee: number;
+  image: string;
+}
 
-const handleClickCancelButton = () => {
-  console.log('취소버튼 클릭');
-};
+interface IFormData {
+  serviceData : ServiceType | null
+}
 
-function Form() {
+function Form({ serviceData }: IFormData) {
   const {
     handleSubmit,
     register,
+    watch,
     formState: { errors },
-  } = useForm<IForm>();
-  const onSubmit: SubmitHandler<IForm> = (data: IForm) => {
+  } = useForm<IForm>({
+    defaultValues: {
+      price: serviceData?.subscriptionFee.toString(),
+    },
+  });
+  const handleClickRegisterButton = () => {
+    const userData = localStorage.getItem('gooding_user_data');
+    if (userData) {
+      const registerData = [...JSON.parse(userData), watch()];
+      localStorage.setItem('gooding_user_data', JSON.stringify(registerData));
+    } else {
+      localStorage.setItem('gooding_user_data', JSON.stringify([watch()]));
+    }
+  };
+  const handleClickCancelButton = () => {
+    console.log('취소버튼 클릭');
+  };
+
+  const onSubmit: SubmitHandler<IForm> = (data) => {
     console.log(data);
   };
+
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
       <S.Title>결제일</S.Title>
@@ -62,8 +85,6 @@ function Form() {
       <S.Title>결제금액</S.Title>
       <S.Input
         id="price"
-        type="number"
-        step="10"
         {...register('price', {
           required: {
             value: true,
