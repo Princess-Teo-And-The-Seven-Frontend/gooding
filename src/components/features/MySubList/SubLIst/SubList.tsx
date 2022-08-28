@@ -27,7 +27,7 @@ const userData = [
 ];
 
 const SubList = () => {
-  const handleOnClick = (name: string) => console.log(name);
+  const handleLogoClick = (name: string) => console.log(name);
   return (
     <div>
       <S.SubsContainer>
@@ -39,7 +39,7 @@ const SubList = () => {
             price={item.구독료}
             shape="hover"
             size={170}
-            onClick={() => handleOnClick(item.이름)}
+            onClick={() => handleLogoClick(item.이름)}
           />
         ))}
       </S.SubsContainer>
