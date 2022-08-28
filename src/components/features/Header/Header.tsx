@@ -23,8 +23,10 @@ const Header = () => {
   return (
     <S.HeaderContainer>
       <S.Logo src="gooding_logo.png" alt="구딩 로고" />
-      <Button onClick={handleToggleMenu}>{isMain ? '모아보기' : '캘린더'}</Button>
-      <Button onClick={handleLogout}>로그아웃</Button>
+      <S.LogoContainer>
+        <Button onClick={handleToggleMenu}>{isMain ? '모아보기' : '캘린더'}</Button>
+        <Button onClick={handleLogout}>로그아웃</Button>
+      </S.LogoContainer>
     </S.HeaderContainer>
   );
 };

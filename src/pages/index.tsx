@@ -3,18 +3,20 @@ import { useRecoilState } from 'recoil';
 
 import { Modal } from '@/components/ui/organisms/Modal/Modal';
 import Tag from '@/components/ui/atoms/Tag';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '@/components/ui/atoms/Button';
 import Form from '@/components/ui/organisms/Form/Form';
 import ServiceDetail from '@/components/ui/organisms/ServiceDetail/ServiceDetail';
-import { BigCalendar } from '@/components/features/Calendar';
+import { CalendarContainer } from '@/components/features/Calendar';
 import Header from '@/components/features/Header';
 import { userNickname } from '@/store/atom';
 import { Login } from '@/components/features/Login';
+import { getLocalstorage } from '@/utils';
 
 import * as S from '../styles/modalStyled';
 
 const HomePage: NextPage = () => {
+  const [nickname, setNickname] = useRecoilState(userNickname);
   const [isOpen, setIsOpen] = useState(false);
   const [first, setFirst] = useState(true);
   const [second, setSecond] = useState(false);
@@ -35,14 +37,17 @@ const HomePage: NextPage = () => {
     console.log('filter');
   };
 
-  const [nickname] = useRecoilState(userNickname);
+  useEffect(() => {
+    const user = getLocalstorage();
+    if (user) setNickname(user.nickname);
+  }, []);
 
   return (
     <div>
       {nickname ? (
         <div>
           <Header />
-          <BigCalendar />
+          <CalendarContainer />
           <Button onClick={onClick}>Open</Button>
           {isOpen && (
             <Modal width={1390} height={805}>
