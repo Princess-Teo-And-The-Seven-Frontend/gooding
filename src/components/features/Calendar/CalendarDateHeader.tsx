@@ -49,7 +49,7 @@ export const CalendarDateHeader = ({ label }: LabelProps) => {
   return (
     <div className="custom-date-header">
       <div>{label}</div>
-      <div className="dh-item header-left">
+      <S.CalendarImgContainer className="dh-item header-left">
         {payingDays &&
           payingDays.map(([_, serviceName]: string[]) => {
             const src = SERVICES.filter((data: DataList) => serviceName === data.name)[0].image;
@@ -60,7 +60,7 @@ export const CalendarDateHeader = ({ label }: LabelProps) => {
               </div>
             );
           })}
-      </div>
+      </S.CalendarImgContainer>
     </div>
   );
 };
