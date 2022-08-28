@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 
 import * as S from './styled';
 
+interface IProps {
+  totalService: number;
+}
 interface IMyInfo {
   topPercent: number;
   nickname: string;
@@ -9,25 +12,24 @@ interface IMyInfo {
 
 const initialMyInfo = {
   topPercent: 100,
-  nickname: '예비구독러',
+  nickname: '예비 구독러',
 };
 
-const MyInfoTop = () => {
+const MyInfoTop = ({ totalService }: IProps) => {
   const [myInfo, setMyInfo] = useState<IMyInfo>(initialMyInfo);
 
   useEffect(() => {
-    const userSubsCount = window.localStorage.getItem('userInfo')?.match(/}/g)?.length;
-    const isUserSubsCount = userSubsCount !== undefined;
-    if (isUserSubsCount && userSubsCount > 0) {
+    const isUserSubsCount = totalService !== undefined;
+    if (isUserSubsCount && totalService === 1) {
       setMyInfo({ topPercent: 60, nickname: '찍먹 구독러' });
-    } else if (isUserSubsCount && userSubsCount <= 2) {
+    } else if (isUserSubsCount && totalService <= 2) {
       setMyInfo({ topPercent: 50, nickname: '평균 구독러' });
-    } else if (isUserSubsCount && userSubsCount <= 6) {
+    } else if (isUserSubsCount && totalService <= 6) {
       setMyInfo({ topPercent: 20, nickname: '프로 구독러' });
-    } else if (isUserSubsCount && userSubsCount > 6) {
+    } else if (isUserSubsCount && totalService > 6) {
       setMyInfo({ topPercent: 2, nickname: '부자 구독러' });
     }
-  }, []);
+  }, [totalService]);
 
   return (
     <S.CardContainer>
