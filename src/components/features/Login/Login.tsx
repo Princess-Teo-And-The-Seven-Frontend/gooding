@@ -3,8 +3,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useRecoilState } from 'recoil';
 
 import { userNickname } from '@/store/atom';
+import { SubmitButton } from '@/components/ui/atoms/SubmitButton';
 
-import { Container } from './styled';
+import * as S from './styled';
 
 interface LoginInputInit {
   nickname: string;
@@ -25,15 +26,16 @@ export const Login = () => {
   const SubmitNickname: SubmitHandler<LoginInputInit> = (data: LoginInputInit) => {
     localStorage.setItem('gooding', JSON.stringify(data));
     const user = JSON.parse(localStorage.getItem('gooding') as string);
-    setNickname(user.nickname);
+    if (user) setNickname(user.nickname);
   };
 
   return (
-    <Container>
+    <S.Container>
+      <S.Logo src="gooding_logo.png" alt="구딩 로고" />
       <form onSubmit={handleSubmit(SubmitNickname)}>
-        <input placeholder="닉네임을 입력해주세요" {...register('nickname')} />
-        <button type="submit">구딩 이용하기</button>
+        <S.Input placeholder="닉네임을 입력해주세요" {...register('nickname')} />
+        <SubmitButton>구딩 이용하기</SubmitButton>
       </form>
-    </Container>
+    </S.Container>
   );
 };
