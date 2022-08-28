@@ -3,32 +3,21 @@ import React from 'react';
 import MyInfoTop from './MyInfoTop';
 import MyInfoBottom from './MyInfoBottom';
 
-const dummyService = [
-  {
-    id: 1,
-    price: 12300,
-  },
-  {
-    id: 2,
-    price: 20000,
-  },
-  {
-    id: 3,
-    price: 7000,
-  },
-];
+interface BFee {
+  subscriptionFee: number;
+}
 
 const MyInfo = () => {
-  const totalService = dummyService.length;
-  const totalPrice = dummyService.reduce((a, b) => a + b.price, 0);
+  const userData = localStorage.getItem('gooding_user_data');
+  const subscribedServices = userData ? JSON.parse(userData) : [];
+
+  const totalService = subscribedServices.length;
+  const totalPrice = subscribedServices.reduce((a: number, b: BFee) => a + b.subscriptionFee, 0);
 
   return (
     <>
       <MyInfoTop />
-      <MyInfoBottom
-        totalService={totalService}
-        totalPrice={totalPrice}
-      />
+      <MyInfoBottom totalService={totalService} totalPrice={totalPrice} />
     </>
   );
 };
