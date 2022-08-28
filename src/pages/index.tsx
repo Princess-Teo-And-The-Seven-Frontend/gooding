@@ -79,10 +79,3 @@ const HomePage: NextPage = () => {
   );
 };
 export default HomePage;
-          </S.SubScribeContainer>
-        </Modal>
-      )}
-    </>
-  );
-};
-export default HomePage;
