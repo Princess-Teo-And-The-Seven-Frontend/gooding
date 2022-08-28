@@ -7,7 +7,7 @@ interface IProps {
   totalPrice: number;
 }
 
-const CalendarMyInfoTop: React.FC<IProps> = ({ nickName, totalCount, totalPrice }) => (
+const CalendarMyInfoTop = ({ nickName, totalCount, totalPrice }: IProps) => (
   <S.CardContainer>
     <S.CalendarMyInfoTop>
       <S.YouText>{`${nickName}님은`}</S.YouText>

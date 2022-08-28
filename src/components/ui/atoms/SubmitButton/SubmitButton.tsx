@@ -6,7 +6,7 @@ interface IProps {
   children: ReactNode;
 }
 
-export const SubmitButton = ({ children }: IProps) => (
+export const SubmitButton: React.FC<IProps> = ({ children }) => (
   <S.SubmitBtn
     type="submit"
     backgroundColor="#000000"

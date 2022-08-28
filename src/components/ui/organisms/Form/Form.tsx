@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useSetRecoilState } from 'recoil';
+import Swal from 'sweetalert2';
+
 import { modalAtom } from '@/store/atom';
 import { SubmitButton } from '@/components/ui/atoms/SubmitButton';
 import * as S from './styled';
@@ -23,7 +25,7 @@ interface ServiceType {
 }
 
 interface IFormData {
-  serviceData : ServiceType | null;
+  serviceData: ServiceType | null;
 }
 
 function Form({ serviceData }: IFormData) {
@@ -39,9 +41,22 @@ function Form({ serviceData }: IFormData) {
   });
   const setModalState = useSetRecoilState(modalAtom);
 
+  const successAlert = (data: string | undefined) => {
+    Swal.fire({
+      title: `${data} 구독을 추가했습니다!`,
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 1200,
+      timerProgressBar: true,
+    });
+  };
+
   const handleClickCancelButton = () => {
     setModalState((prev) => ({
-      ...prev, isOpen: false, isClicked: false, selectedCategory: '비디오',
+      ...prev,
+      isOpen: false,
+      isClicked: false,
+      selectedCategory: '비디오',
     }));
   };
 
@@ -50,16 +65,25 @@ function Form({ serviceData }: IFormData) {
     if (!userData) {
       const registerData = [Object.assign(serviceData!, watch())];
       localStorage.setItem('gooding_user_data', JSON.stringify(registerData));
+      successAlert(serviceData?.name);
       setModalState((prev) => ({
-        ...prev, isOpen: false, isClicked: false,
+        ...prev,
+        isOpen: false,
+        isClicked: false,
       }));
       return;
     }
-    if (userData && (!JSON.parse(userData).find((user : ServiceType) => user.id === serviceData?.id))) {
+    if (
+      userData
+      && !JSON.parse(userData).find((user: ServiceType) => user.id === serviceData?.id)
+    ) {
       const registerData = [...JSON.parse(userData), Object.assign(serviceData!, watch())];
       localStorage.setItem('gooding_user_data', JSON.stringify(registerData));
+      successAlert(serviceData?.name);
       setModalState((prev) => ({
-        ...prev, isOpen: false, isClicked: false,
+        ...prev,
+        isOpen: false,
+        isClicked: false,
       }));
     } else {
       setModalState((prev) => ({
@@ -87,11 +111,7 @@ function Form({ serviceData }: IFormData) {
       />
       {errors.date?.type === 'required' && <S.ErrorMessage>결제일을 입력해주세요</S.ErrorMessage>}
       <S.Title>결제주기</S.Title>
-      <S.Input
-        id="cycle"
-        as="select"
-        {...register('cycle')}
-      >
+      <S.Input id="cycle" as="select" {...register('cycle')}>
         <option value="1주일">1주일</option>
         <option value="1개월">1개월</option>
         <option value="3개월">3개월</option>
@@ -121,5 +141,4 @@ function Form({ serviceData }: IFormData) {
     </S.Form>
   );
 }
-
 export default Form;

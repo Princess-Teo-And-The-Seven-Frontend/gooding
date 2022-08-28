@@ -15,7 +15,7 @@ export const Input = styled.input`
   resize: none;
   &:focus {
     outline: none;
-    border-bottom: 2px solid #7D70FA;
+    border-bottom: 2px solid #7d70fa;
   }
 `;
 
