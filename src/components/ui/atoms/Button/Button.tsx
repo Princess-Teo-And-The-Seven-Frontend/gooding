@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import * as S from './styled';
 
 interface IProps {
-  children: React.ReactNode;
+  children: ReactNode;
   onClick: () => void;
 }
 

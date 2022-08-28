@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 interface IDiv {
   backgroundColor: string;
   color: string;
-    hoverBackgroundColor: string;
+  hoverBackgroundColor: string;
   hoverColor: string;
 }
 
