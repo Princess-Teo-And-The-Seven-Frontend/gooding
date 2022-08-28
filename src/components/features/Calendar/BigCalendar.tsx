@@ -7,17 +7,12 @@ import moment from 'moment';
 import { userServices } from '@/constants';
 
 import { CalendarToolBar, CalendarDateHeader } from '.';
+import * as S from './styled';
 
 const localizer = momentLocalizer(moment);
 
-const Container = styled.div`
-  & .rbc-event {
-    display: none;
-  }
-`;
-
 const BigCalendar = () => (
-  <Container>
+  <S.Container>
     <Calendar
       localizer={localizer}
       events={userServices as any}
@@ -31,7 +26,7 @@ const BigCalendar = () => (
         },
       }}
     />
-  </Container>
+  </S.Container>
 );
 
 export default BigCalendar;
