@@ -7,7 +7,7 @@ import { useState } from 'react';
 import Button from '@/components/ui/atoms/Button';
 import Form from '@/components/ui/organisms/Form/Form';
 import ServiceDetail from '@/components/ui/organisms/ServiceDetail/ServiceDetail';
-import { BigCalendar } from '@/components/features/Calendar';
+import { CalendarContainer } from '@/components/features/Calendar';
 import Header from '@/components/features/Header';
 import { userNickname } from '@/store/atom';
 import { Login } from '@/components/features/Login';
@@ -42,7 +42,7 @@ const HomePage: NextPage = () => {
       {nickname ? (
         <div>
           <Header />
-          <BigCalendar />
+          <CalendarContainer />
           <Button onClick={onClick}>Open</Button>
           {isOpen && (
             <Modal width={1390} height={805}>
