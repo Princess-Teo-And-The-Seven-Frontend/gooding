@@ -15,13 +15,10 @@ interface EventsType {
 
 interface DataList {
   id: number;
-  이름: string;
-  카테고리: string;
-  구독료: number;
-  구독료변동: boolean;
-  서비스설명: string;
-  사진: string;
-  링크: string;
+  name: string;
+  category: string;
+  subscriptionFee: number;
+  image: string;
 }
 
 const Img = styled.img``;
@@ -44,7 +41,7 @@ export const CalendarDateHeader = ({ label }: LabelProps) => {
           .map((payingDay: string[]) => {
             const serviceTitle = payingDay[1];
 
-            const src = SERVICES.filter((data: DataList) => serviceTitle === data.이름)[0].사진;
+            const src = SERVICES.filter((data: DataList) => serviceTitle === data.name)[0].image;
 
             return (
               <div key={`CalendarDateHeader-payingDay-${src}`}>
