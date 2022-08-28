@@ -6,14 +6,16 @@ import * as S from './styled';
 const category = ['비디오', '음악', '쇼핑', '기타'];
 
 const TagList = () => {
-const onClick = () => console.log("click")
-  return(
-     <S.TagContainer>
-    {category.map((item) => (
-      <Tag onClick={onClick} key={item}>{item}</Tag>
-    ))}
-  </S.TagContainer>
-  )
+  const onClick = () => console.log('click');
+  return (
+    <S.TagContainer>
+      {category.map((item: string) => (
+        <Tag onClick={onClick} key={item}>
+          {item}
+        </Tag>
+      ))}
+    </S.TagContainer>
+  );
 };
 
 export default TagList;
