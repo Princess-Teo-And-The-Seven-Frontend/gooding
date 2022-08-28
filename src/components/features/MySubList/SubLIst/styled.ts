@@ -6,8 +6,3 @@ export const SubsContainer = styled.div`
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(170px, auto));
 `;
-
-export const TagContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`;

@@ -1,7 +1,8 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { userServices, SERVICES } from '@/constants';
+import { SERVICES } from '@/constants';
 
 import * as S from './styled';
 
@@ -10,8 +11,8 @@ interface LabelProps {
 }
 
 interface EventsType {
-  title: string;
-  start: string;
+  name: string;
+  date: string;
   end: string;
 }
 
@@ -24,32 +25,42 @@ interface DataList {
 }
 
 export const CalendarDateHeader = ({ label }: LabelProps) => {
-  const payingDays: string[][] = userServices.map((data: EventsType) => {
-    const day = data.start.slice(8, 10);
-    const name = data.title;
-    return [day, name];
-  });
+  const [payingDays, setPayingDays] = useState<string[][]>();
+  const userData = localStorage.getItem('gooding_user_data');
+
+  useEffect(() => {
+    if (userData) {
+      const parseData = JSON.parse(userData);
+      const dateServices: string[][] = parseData.map((data: EventsType) => {
+        const startDate = data.date.slice(8, 10);
+        const serviceName = data.name;
+        return [startDate, serviceName];
+      });
+      const sameDate = dateServices.filter(([startDate, _]: string[]) => startDate === label);
+      setPayingDays(sameDate);
+    }
+  }, [userData]);
 
   const onClick = (title: string) => {
+    alert('구딩을 잘 이용하고 계신가요? 유료로 전환하세요!');
     console.log(`click : ${title}`);
   };
 
   return (
     <div className="custom-date-header">
       <div>{label}</div>
-      <div className="dh-item header-left">
-        {payingDays
-          .filter(([day, _]: string[]) => day === label)
-          .map(([_, serviceTitle]: string[]) => {
-            const src = SERVICES.filter((data: DataList) => serviceTitle === data.name)[0].image;
+      <S.CalendarImgContainer className="dh-item header-left">
+        {payingDays &&
+          payingDays.map(([_, serviceName]: string[]) => {
+            const src = SERVICES.filter((data: DataList) => serviceName === data.name)[0].image;
 
             return (
               <div key={`CalendarDateHeader-payingDay-${src}`}>
-                <S.Img src={src} onClick={() => onClick(serviceTitle)} />
+                <S.Img src={src} onClick={() => onClick(serviceName)} />
               </div>
             );
           })}
-      </div>
+      </S.CalendarImgContainer>
     </div>
   );
 };

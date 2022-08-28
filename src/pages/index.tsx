@@ -3,81 +3,139 @@ import { useRecoilState } from 'recoil';
 
 import { Modal } from '@/components/ui/organisms/Modal/Modal';
 import Tag from '@/components/ui/atoms/Tag';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '@/components/ui/atoms/Button';
 import Form from '@/components/ui/organisms/Form/Form';
 import ServiceDetail from '@/components/ui/organisms/ServiceDetail/ServiceDetail';
-import { BigCalendar } from '@/components/features/Calendar';
+import { CalendarContainer } from '@/components/features/Calendar';
 import Header from '@/components/features/Header';
-import { userNickname } from '@/store/atom';
 import { Login } from '@/components/features/Login';
-
+import {
+  userNickname, modalAtom,
+} from '@/store/atom';
+import { SERVICES } from '@/constants/index';
+import { getLocalstorage } from '@/utils';
+import MyPage from '@/components/features/MyPage';
 import * as S from '../styles/modalStyled';
 
+interface ISelectedServiceData {
+  id: number;
+  name: string;
+  category: string;
+  subscriptionFee: number;
+  image: string
+}
+
 const HomePage: NextPage = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [first, setFirst] = useState(true);
-  const [second, setSecond] = useState(false);
-  const categoryArr = ['OTT', '음악', '도서', '쇼핑', '프로그램'];
-  const AllLogoArr = ['', '', '', '', '', '', '', '', '', ''];
+  const [isMain, setIsMain] = useState(true);
+  const [nickname, setNickname] = useRecoilState(userNickname);
+  const [modalState, setModalState] = useRecoilState(modalAtom);
+  const [selectedServiceData, setSelectedServiceData] = useState<ISelectedServiceData | null>(null);
 
-  const onClickhandler = () => {
-    console.log('test consolelog');
-    setFirst(false);
-    setSecond(true);
+  const categoryArray = Array.from(new Set(SERVICES.map((service) => service.category))).map((category, index) => {
+    const categoryUnit = {
+      id: index,
+      category,
+    };
+    return categoryUnit;
+  });
+
+  const selectedServices = SERVICES.filter((service) => service.category === modalState.selectedCategory);
+
+  const similarServices = selectedServices.filter((service) => service.id !== selectedServiceData?.id).slice(0, 3);
+
+  const onClickhandler = (selectedLogoId : number) => {
+    SERVICES.forEach((selectedService) => {
+      if (selectedService.id === selectedLogoId) {
+        setSelectedServiceData(selectedService);
+      }
+    });
+    setModalState((prev) => ({ ...prev, isClicked: true }));
   };
 
+  // 나중에 플러스 버튼에 들어 갈 함수 함수명 추천받습니다.
   const onClick = () => {
-    setIsOpen(!isOpen);
+    setModalState((prev) => ({ ...prev, isOpen: !modalState.isOpen, selectedCategory: '비디오' }));
   };
 
-  const onClickFilter = () => {
-    console.log('filter');
+  const onClickFilter = (category:string) => {
+    setModalState((prev) => ({ ...prev, selectedCategory: category }));
   };
 
-  const [nickname] = useRecoilState(userNickname);
+  useEffect(() => {
+    const user = getLocalstorage();
+    if (user) setNickname(user.nickname);
+  }, []);
+
+  const clearState = () => {
+    setModalState((prev) => ({
+      ...prev,
+      isOpen: false,
+      isClicked: false,
+      isWorning: {
+        isDuplicate: false,
+        hasSubscribe: false,
+      },
+    }));
+  };
 
   return (
     <div>
       {nickname ? (
         <div>
-          <Header />
-          <BigCalendar />
-          <Button onClick={onClick}>Open</Button>
-          {isOpen && (
+          <Header isMain={isMain} setIsMain={setIsMain} />
+          {isMain
+            ? (
+              <div>
+                <CalendarContainer />
+                <Button onClick={onClick}>Open</Button>
+              </div>
+            )
+            : (
+              <MyPage />
+            )}
+          {modalState.isOpen
+          && !(modalState.isWorning.hasSubscribe || modalState.isWorning.isDuplicate) && (
             <Modal width={1390} height={805}>
               <S.SubScribeContainer>
-                {first && (
+                {!modalState.isClicked ? (
                   <>
                     <S.CloseBtn>
                       <Button onClick={onClick}>X</Button>
                     </S.CloseBtn>
                     <S.Title>구독 중인 서비스가 있나요?</S.Title>
                     <S.TagBox>
-                      {categoryArr.map((category, index) => (
-                        // eslint-disable-next-line react/no-array-index-key
-                        <Tag onClick={onClickFilter} key={index}>
+                      {categoryArray.map(({ category, id }) => (
+                        <Tag
+                          onClick={() => onClickFilter(category)}
+                          isSelected={modalState.selectedCategory === category}
+                          key={id}
+                        >
                           {category}
                         </Tag>
                       ))}
                     </S.TagBox>
                     <S.LogoBox>
-                      {AllLogoArr.map((logo, index) => (
-                        // eslint-disable-next-line react/no-array-index-key
-                        <S.Logo onClick={onClickhandler} key={index}>
-                          {logo}
-                        </S.Logo>
+                      {selectedServices.slice(0, 10).map(({ image, id }) => (
+                        <S.Logo src={image} onClick={() => onClickhandler(id)} key={id} />
                       ))}
                     </S.LogoBox>
                   </>
-                )}
-                {second && (
+                ) : (
                   <div style={{ display: 'flex' }}>
-                    <ServiceDetail />
-                    <Form />
+                    <ServiceDetail serviceData={selectedServiceData} selectedServices={similarServices} />
+                    <Form serviceData={selectedServiceData} />
                   </div>
                 )}
               </S.SubScribeContainer>
+            </Modal>
+          )}
+          {(modalState.isWorning.hasSubscribe || modalState.isWorning.isDuplicate) && (
+            <Modal width={1390} height={805}>
+              {modalState.isWorning.isDuplicate && <div>중복된 구독서비스가 존재해요!</div>}
+              {modalState.isWorning.hasSubscribe && <div>구독정보가 등록되지 않았어요</div>}
+              {/* {modalState.isWorning.isTerminate && <div>실제 구독 서비스의 해지는 홈페이지에서 진행해야 해요!</div>} */}
+              <button type="button" onClick={clearState}>확인</button>
             </Modal>
           )}
         </div>
@@ -87,4 +145,5 @@ const HomePage: NextPage = () => {
     </div>
   );
 };
+
 export default HomePage;

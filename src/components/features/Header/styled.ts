@@ -8,7 +8,13 @@ export const HeaderContainer = styled.div`
   align-items: center;
 `;
 
+export const LogoContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+`;
 export const Logo = styled.img`
   width: 120px;
   height: 120px;
+  cursor: pointer;
 `;

@@ -11,7 +11,7 @@ import { CalendarDateHeader } from './CalendarDateHeader';
 const localizer = momentLocalizer(moment);
 
 export const BigCalendar = () => (
-  <S.Container>
+  <S.BigCalendarContainer>
     <Calendar
       localizer={localizer}
       events={userServices as any}
@@ -25,5 +25,5 @@ export const BigCalendar = () => (
         },
       }}
     />
-  </S.Container>
+  </S.BigCalendarContainer>
 );
