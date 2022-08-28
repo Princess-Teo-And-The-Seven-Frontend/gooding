@@ -4,10 +4,10 @@ import * as S from './styled';
 import Button from '../../atoms/Button';
 
 interface IForm {
-  price: string,
-  memo: string,
-  date: Date,
-  cycle: string,
+  price: string;
+  memo: string;
+  date: Date;
+  cycle: string;
 }
 
 const handleClickRegisterButton = () => {
@@ -20,66 +20,61 @@ const handleClickCancelButton = () => {
 
 function Form() {
   const {
-    handleSubmit, register, formState: { errors },
+    handleSubmit,
+    register,
+    formState: { errors },
   } = useForm<IForm>();
-  const onSubmit : SubmitHandler<IForm> = (data) => {
+  const onSubmit: SubmitHandler<IForm> = data => {
     console.log(data);
   };
   return (
-    <S.Form className="1234" onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="date">
-        <S.Title>결제일</S.Title>
-        <S.Input
-          id="date"
-          type="date"
-          {
-          ...register('date', {
-            required: {
-              value: true,
-              message: '결제일을 입력해주세요.',
-            },
-          })}
-        />
-      </label>
+    <S.Form onSubmit={handleSubmit(onSubmit)}>
+      <S.Title>결제일</S.Title>
+      <S.Input
+        id="date"
+        type="date"
+        {...register('date', {
+          required: {
+            value: true,
+            message: '결제일을 입력해주세요.',
+          },
+        })}
+      />
       {errors.date && <S.ErrorMessage>errors.message</S.ErrorMessage>}
-      <label htmlFor="cycle">
-        <S.Title>결제주기</S.Title>
-        <S.Input
-          id="cycle"
-          {
-          ...register('cycle', {
-            required: {
-              value: true,
-              message: '결제주기를 입력해주세요',
-            },
-          })}
-        />
-      </label>
+      <S.Title>결제주기</S.Title>
+      <S.Input
+        id="cycle"
+        as="select"
+        {...register('cycle', {
+          required: {
+            value: true,
+            message: '결제주기를 선택해주세요.',
+          },
+        })}
+      >
+        <option value="1주일">1주일</option>
+        <option value="1개월">1개월</option>
+        <option value="3개월">3개월</option>
+        <option value="6개월">6개월</option>
+        <option value="1년">1년</option>
+      </S.Input>
       {errors.cycle && <S.ErrorMessage>errors.message</S.ErrorMessage>}
-      <label htmlFor="price">
-        <S.Title>결제금액</S.Title>
-        <S.Input
-          id="price"
-          {
-          ...register('price', {
-            required: {
-              value: true,
-              message: '결제금액을 입력해주세요',
-            },
-          })}
-        />
-      </label>
+      <S.Title>결제금액</S.Title>
+      <S.Input
+        id="price"
+        type="number"
+        step="10"
+        {...register('price', {
+          required: {
+            value: true,
+            message: '결제금액을 입력해주세요',
+          },
+        })}
+      />
       {errors.price && <S.ErrorMessage>errors.message</S.ErrorMessage>}
- 
-      <label htmlFor="memo">
-        <S.Title>메모</S.Title>
-        <S.Input
-          id="memo"
-          {
-            ...register('memo')
-        }
-        />
-      </label>
+
+      <S.Title>메모</S.Title>
+      <S.Input as="textarea" id="memo" {...register('memo')} />
       <div style={{ display: 'flex', marginTop: 30, justifyContent: 'flex-end' }}>
         <Button onClick={handleClickRegisterButton}>등록</Button>
         <div style={{ paddingRight: 10 }} />

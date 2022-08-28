@@ -5,7 +5,10 @@ const ServiceDetail = () => {
   console.log('keep return');
   return (
     <S.DetailContainer>
-      <div style={{width: '250px', height: '250px', borderRadius: '50%', background: 'red'}} />
+      <div style={{
+        width: '250px', height: '250px', borderRadius: '50%', background: 'red',
+      }}
+      />
       <S.FirstBox>
         <S.ServiceTitle>상품</S.ServiceTitle>
         <S.ServiceTitle2>넷플릭스</S.ServiceTitle2>
