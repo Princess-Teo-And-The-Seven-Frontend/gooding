@@ -15,7 +15,7 @@ import {
 } from '@/store/atom';
 import { SERVICES } from '@/constants/index';
 import { getLocalstorage } from '@/utils';
-
+import MyPage from '@/components/features/MyPage';
 import * as S from '../styles/modalStyled';
 
 interface ISelectedServiceData {
@@ -27,6 +27,7 @@ interface ISelectedServiceData {
 }
 
 const HomePage: NextPage = () => {
+  const [isMain, setIsMain] = useState(true);
   const [nickname, setNickname] = useRecoilState(userNickname);
   const [modalState, setModalState] = useRecoilState(modalAtom);
   const [selectedServiceData, setSelectedServiceData] = useState<ISelectedServiceData | null>(null);
@@ -82,6 +83,17 @@ const HomePage: NextPage = () => {
     <div>
       {nickname ? (
         <div>
+          <Header isMain={isMain} setIsMain={setIsMain} />
+          {isMain
+            ? (
+              <div>
+                <CalendarContainer />
+                <Button onClick={onClick}>Open</Button>
+              </div>
+            )
+            : (
+              <MyPage />
+            )}
           <Header />
           <CalendarContainer />
           <Button onClick={onClick}>Open</Button>
@@ -136,4 +148,5 @@ const HomePage: NextPage = () => {
     </div>
   );
 };
+
 export default HomePage;
