@@ -1,5 +1,8 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useSetRecoilState } from 'recoil';
+import { modalAtom } from '@/store/atom';
+import { SubmitButton } from '@/components/ui/atoms/SubmitButton';
 import * as S from './styled';
 import Button from '../../atoms/Button';
 
@@ -7,6 +10,7 @@ interface IForm {
   price: string;
   memo: string;
   date: Date;
+  message: string;
   cycle: string;
 }
 
@@ -33,21 +37,31 @@ function Form({ serviceData }: IFormData) {
       price: serviceData?.subscriptionFee.toString(),
     },
   });
-  const handleClickRegisterButton = () => {
-    const userData = localStorage.getItem('gooding_user_data');
-    if (userData) {
-      const registerData = [...JSON.parse(userData), Object.assign(serviceData!, watch())];
-      localStorage.setItem('gooding_user_data', JSON.stringify(registerData));
-    } else {
-      localStorage.setItem('gooding_user_data', JSON.stringify([Object.assign(serviceData!, watch())]));
-    }
-  };
+  const setModalState = useSetRecoilState(modalAtom);
+
   const handleClickCancelButton = () => {
-    console.log('취소버튼 클릭');
+    setModalState((prev) => ({
+      ...prev, isOpen: false, isClicked: false, selectedCategory: '비디오',
+    }));
   };
 
-  const onSubmit: SubmitHandler<IForm> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<IForm> = () => {
+    const userData = localStorage.getItem('gooding_user_data');
+    if (userData && (!JSON.parse(userData).find((user : ServiceType) => user.id === serviceData?.id))) {
+      const registerData = [...JSON.parse(userData), Object.assign(serviceData!, watch())];
+      localStorage.setItem('gooding_user_data', JSON.stringify(registerData));
+      setModalState((prev) => ({
+        ...prev, isOpen: false, isClicked: false,
+      }));
+    } else {
+      setModalState((prev) => ({
+        ...prev,
+        isWorning: {
+          isDuplicate: true,
+          hasSubscribe: false,
+        },
+      }));
+    }
   };
 
   return (
@@ -63,17 +77,12 @@ function Form({ serviceData }: IFormData) {
           },
         })}
       />
-      {errors.date && <S.ErrorMessage>errors.message</S.ErrorMessage>}
+      {errors.date?.type === 'required' && <S.ErrorMessage>결제일을 입력해주세요</S.ErrorMessage>}
       <S.Title>결제주기</S.Title>
       <S.Input
         id="cycle"
         as="select"
-        {...register('cycle', {
-          required: {
-            value: true,
-            message: '결제주기를 선택해주세요.',
-          },
-        })}
+        {...register('cycle')}
       >
         <option value="1주일">1주일</option>
         <option value="1개월">1개월</option>
@@ -81,10 +90,11 @@ function Form({ serviceData }: IFormData) {
         <option value="6개월">6개월</option>
         <option value="1년">1년</option>
       </S.Input>
-      {errors.cycle && <S.ErrorMessage>errors.message</S.ErrorMessage>}
       <S.Title>결제금액</S.Title>
       <S.Input
         id="price"
+        step="10"
+        type="number"
         {...register('price', {
           required: {
             value: true,
@@ -92,13 +102,12 @@ function Form({ serviceData }: IFormData) {
           },
         })}
       />
-      {errors.price && <S.ErrorMessage>errors.message</S.ErrorMessage>}
+      {errors.price && <S.ErrorMessage>결제금액을 입력해주세요.</S.ErrorMessage>}
 
       <S.Title>메모</S.Title>
       <S.Input as="textarea" id="memo" {...register('memo')} />
-      <div style={{ display: 'flex', marginTop: 30, justifyContent: 'flex-end' }}>
-        <Button onClick={handleClickRegisterButton}>등록</Button>
-        <div style={{ paddingRight: 10 }} />
+      <div>
+        <SubmitButton>등록</SubmitButton>
         <Button onClick={handleClickCancelButton}>취소</Button>
       </div>
     </S.Form>
