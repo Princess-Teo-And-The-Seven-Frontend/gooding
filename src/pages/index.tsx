@@ -5,6 +5,8 @@ import { useState } from 'react';
 import Button from '@/components/ui/atoms/Button';
 import Form from '@/components/ui/organisms/Form/Form'
 import ServiceDetail from '@/components/ui/organisms/ServiceDetail/ServiceDetail';
+import { BigCalendar } from '@/components/features/Calendar';
+import Header from '@/components/features/Header';
 import * as S from '../styles/modalStyled';
 
 interface ICategories {}
@@ -34,6 +36,8 @@ const HomePage: NextPage = () => {
 
   return (
     <>
+      <Header />
+      <BigCalendar />
       <Button onClick={onClick}>Open</Button>
       {isOpen && (
         <Modal width={1390} height={805}>
@@ -68,6 +72,13 @@ const HomePage: NextPage = () => {
                 <Form />
               </div>
             )}
+          </S.SubScribeContainer>
+        </Modal>
+      )}
+    </>
+  );
+};
+export default HomePage;
           </S.SubScribeContainer>
         </Modal>
       )}
