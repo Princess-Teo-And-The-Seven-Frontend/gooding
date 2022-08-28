@@ -5,9 +5,8 @@ import Swal from 'sweetalert2';
 
 import { modalAtom } from '@/store/atom';
 import { SubmitButton } from '@/components/ui/atoms/SubmitButton';
-import Button from '@/components/ui/atoms/Button';
-
 import * as S from './styled';
+import Button from '../../atoms/Button';
 
 interface IForm {
   price: string;
@@ -94,55 +93,47 @@ function Form({ serviceData }: IFormData) {
 
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
-      <S.TitleInputWrapper>
-        <S.Title>결제일</S.Title>
-        <S.Input
-          id="date"
-          type="date"
-          {...register('date', {
-            required: {
-              value: true,
-              message: '결제일을 입력해주세요.',
-            },
-          })}
-        />
-      </S.TitleInputWrapper>
+      <S.Title>결제일</S.Title>
+      <S.Input
+        id="date"
+        type="date"
+        {...register('date', {
+          required: {
+            value: true,
+            message: '결제일을 입력해주세요.',
+          },
+        })}
+      />
       {errors.date?.type === 'required' && <S.ErrorMessage>결제일을 입력해주세요</S.ErrorMessage>}
-      <S.TitleInputWrapper>
-        <S.Title>결제주기</S.Title>
-        <S.Input id="cycle" as="select" {...register('cycle')}>
-          <option value="1주일">1주일</option>
-          <option value="1개월">1개월</option>
-          <option value="3개월">3개월</option>
-          <option value="6개월">6개월</option>
-          <option value="1년">1년</option>
-        </S.Input>
-      </S.TitleInputWrapper>
-      <S.TitleInputWrapper>
-        <S.Title>결제금액</S.Title>
-        <S.Input
-          id="price"
-          step="10"
-          type="number"
-          {...register('price', {
-            required: {
-              value: true,
-              message: '결제금액을 입력해주세요',
-            },
-          })}
-        />
-      </S.TitleInputWrapper>
+      <S.Title>결제주기</S.Title>
+      <S.Input id="cycle" as="select" {...register('cycle')}>
+        <option value="1주일">1주일</option>
+        <option value="1개월">1개월</option>
+        <option value="3개월">3개월</option>
+        <option value="6개월">6개월</option>
+        <option value="1년">1년</option>
+      </S.Input>
+      <S.Title>결제금액</S.Title>
+      <S.Input
+        id="price"
+        step="10"
+        type="number"
+        {...register('price', {
+          required: {
+            value: true,
+            message: '결제금액을 입력해주세요',
+          },
+        })}
+      />
       {errors.price && <S.ErrorMessage>결제금액을 입력해주세요.</S.ErrorMessage>}
-      <S.TitleInputWrapper>
-        <S.Title>메모</S.Title>
-        <S.Input as="textarea" id="memo" {...register('memo')} />
-      </S.TitleInputWrapper>
-      <S.ButtonBox>
+
+      <S.Title>메모</S.Title>
+      <S.Input as="textarea" id="memo" {...register('memo')} />
+      <div>
         <SubmitButton>등록</SubmitButton>
         <Button onClick={handleClickCancelButton}>취소</Button>
-      </S.ButtonBox>
+      </div>
     </S.Form>
   );
 }
-
 export default Form;

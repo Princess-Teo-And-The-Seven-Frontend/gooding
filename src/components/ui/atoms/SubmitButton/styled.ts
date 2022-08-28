@@ -8,10 +8,9 @@ interface ISubmitButton {
 }
 
 export const SubmitBtn = styled.button<ISubmitButton>`
-  width: 100px;
+  width: auto;
   height: 30px;
-  padding: 8px;
-  margin-right: 8px;
+  padding: 0px 10px;
   font-weight: 600;
   color: ${({ color }) => color};
   background-color: ${({ backgroundColor }) => backgroundColor};
@@ -19,7 +18,6 @@ export const SubmitBtn = styled.button<ISubmitButton>`
   text-align: center;
   align-items: center;
   border-radius: 20px;
-
   &:hover {
     color: ${({ hoverColor }) => hoverColor};
     background-color: ${({ hoverBackgroundColor }) => hoverBackgroundColor};
