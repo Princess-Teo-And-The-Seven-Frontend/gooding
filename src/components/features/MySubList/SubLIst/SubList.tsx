@@ -1,7 +1,6 @@
 import React from 'react';
+import LogoImage from '@components/ui/atoms/LogoImage/LogoImage';
 import * as S from './styled';
-import LogoImage from '../../../ui/atoms/LogoImage';
-
 // 임시 더미 데이터 입니다.
 const userData = [
   {
@@ -27,7 +26,7 @@ const userData = [
 ];
 
 const SubList = () => {
-  const handleOnClick = (name: string) => console.log(name);
+  const handleLogoClick = (name: string) => console.log(name);
   return (
     <div>
       <S.SubsContainer>
@@ -39,7 +38,7 @@ const SubList = () => {
             price={item.구독료}
             shape="hover"
             size={170}
-            onClick={() => handleOnClick(item.이름)}
+            onClick={() => handleLogoClick(item.이름)}
           />
         ))}
       </S.SubsContainer>

@@ -24,7 +24,7 @@ function Form() {
     register,
     formState: { errors },
   } = useForm<IForm>();
-  const onSubmit: SubmitHandler<IForm> = data => {
+  const onSubmit: SubmitHandler<IForm> = (data) => {
     console.log(data);
   };
   return (

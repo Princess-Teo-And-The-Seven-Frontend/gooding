@@ -28,7 +28,7 @@ const LogoImage = ({
     );
   }
 
-  return <S.ImageCircle size={size} src={src} className="image" onClick={onClick} />;
+  return <S.ImageCircle size={size} src={src} onClick={onClick} />;
 };
 
 export default LogoImage;

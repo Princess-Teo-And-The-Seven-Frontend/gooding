@@ -23,13 +23,13 @@ const MyInfo = () => {
   const totalPrice = dummyService.reduce((a, b) => a + b.price, 0);
 
   return (
-    <>
+    <div>
       <MyInfoTop />
       <MyInfoBottom
         totalService={totalService}
         totalPrice={totalPrice}
       />
-    </>
+    </div>
   );
 };
 
