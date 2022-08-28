@@ -47,6 +47,14 @@ function Form({ serviceData }: IFormData) {
 
   const onSubmit: SubmitHandler<IForm> = () => {
     const userData = localStorage.getItem('gooding_user_data');
+    if (!userData) {
+      const registerData = [Object.assign(serviceData!, watch())];
+      localStorage.setItem('gooding_user_data', JSON.stringify(registerData));
+      setModalState((prev) => ({
+        ...prev, isOpen: false, isClicked: false,
+      }));
+      return;
+    }
     if (userData && (!JSON.parse(userData).find((user : ServiceType) => user.id === serviceData?.id))) {
       const registerData = [...JSON.parse(userData), Object.assign(serviceData!, watch())];
       localStorage.setItem('gooding_user_data', JSON.stringify(registerData));

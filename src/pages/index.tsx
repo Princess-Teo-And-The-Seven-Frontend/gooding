@@ -94,9 +94,6 @@ const HomePage: NextPage = () => {
             : (
               <MyPage />
             )}
-          <Header />
-          <CalendarContainer />
-          <Button onClick={onClick}>Open</Button>
           {modalState.isOpen
           && !(modalState.isWorning.hasSubscribe || modalState.isWorning.isDuplicate) && (
             <Modal width={1390} height={805}>
