@@ -42,6 +42,7 @@ export const CalendarDateHeader = ({ label }: LabelProps) => {
   }, []);
 
   const onClick = (title: string) => {
+    alert('구딩을 잘 이용하고 계신가요? 유료로 전환하세요!');
     console.log(`click : ${title}`);
   };
 
