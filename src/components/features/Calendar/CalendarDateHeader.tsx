@@ -26,9 +26,9 @@ interface DataList {
 
 export const CalendarDateHeader = ({ label }: LabelProps) => {
   const [payingDays, setPayingDays] = useState<string[][]>();
+  const userData = localStorage.getItem('gooding_user_data');
 
   useEffect(() => {
-    const userData = localStorage.getItem('gooding_user_data');
     if (userData) {
       const parseData = JSON.parse(userData);
       const dateServices: string[][] = parseData.map((data: EventsType) => {
@@ -39,7 +39,7 @@ export const CalendarDateHeader = ({ label }: LabelProps) => {
       const sameDate = dateServices.filter(([startDate, _]: string[]) => startDate === label);
       setPayingDays(sameDate);
     }
-  }, []);
+  }, [userData]);
 
   const onClick = (title: string) => {
     alert('구딩을 잘 이용하고 계신가요? 유료로 전환하세요!');
