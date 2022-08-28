@@ -21,6 +21,7 @@ const Header = ({ isMain, setIsMain }: IProps) => {
 
   const handleLogout = () => {
     localStorage.removeItem('gooding');
+    localStorage.removeItem('gooding_user_data');
     setNickname('');
   };
 
