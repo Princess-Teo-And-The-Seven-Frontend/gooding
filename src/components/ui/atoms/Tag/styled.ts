@@ -17,7 +17,13 @@ export const Tag = styled.div<ITag>`
   align-items: center;
   border-radius: 11px;
   color: ${({ color }) => color};
-  background: ${({ backgroundColor }) => backgroundColor};
+   background: ${({ backgroundColor }) => backgroundColor};
   cursor: pointer;
   margin: 0px 10px;
+  &:hover {
+    background: #BECCE9;
+  }
+  &:active {
+    background: #7D70FA;
+  }
 `;

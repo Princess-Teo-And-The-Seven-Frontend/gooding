@@ -9,22 +9,48 @@ import Form from '@/components/ui/organisms/Form/Form';
 import ServiceDetail from '@/components/ui/organisms/ServiceDetail/ServiceDetail';
 import { CalendarContainer } from '@/components/features/Calendar';
 import Header from '@/components/features/Header';
-import { userNickname } from '@/store/atom';
 import { Login } from '@/components/features/Login';
+import { userNickname } from '@/store/atom';
+import { SERVICES } from '@/constants/index';
 import { getLocalstorage } from '@/utils';
 
 import * as S from '../styles/modalStyled';
+
+interface ISelectedServiceData {
+  id: number;
+  name: string;
+  category: string;
+  subscriptionFee: number;
+  image: string
+}
 
 const HomePage: NextPage = () => {
   const [nickname, setNickname] = useRecoilState(userNickname);
   const [isOpen, setIsOpen] = useState(false);
   const [first, setFirst] = useState(true);
   const [second, setSecond] = useState(false);
-  const categoryArr = ['OTT', '음악', '도서', '쇼핑', '프로그램'];
-  const AllLogoArr = ['', '', '', '', '', '', '', '', '', ''];
+  const [selectedCategory, setSelectedCategory] = useState('비디오');
+  const [isClick, setIsClick] = useState(false);
+  const [selectedServiceData, setSelectedServiceData] = useState<ISelectedServiceData | null>(null);
 
-  const onClickhandler = () => {
-    console.log('test consolelog');
+  const categoryArray = Array.from(new Set(SERVICES.map((service) => service.category))).map((category, index) => {
+    const categoryUnit = {
+      id: index,
+      category,
+    };
+    return categoryUnit;
+  });
+
+  const selectedServices = SERVICES.filter((service) => service.category === selectedCategory);
+
+  const similarServices = selectedServices.filter((service) => service.id !== selectedServiceData?.id).slice(0, 3);
+
+  const onClickhandler = (selectedLogoId : number) => {
+    SERVICES.forEach((selectedService) => {
+      if (selectedService.id === selectedLogoId) {
+        setSelectedServiceData(selectedService);
+      }
+    });
     setFirst(false);
     setSecond(true);
   };
@@ -33,8 +59,9 @@ const HomePage: NextPage = () => {
     setIsOpen(!isOpen);
   };
 
-  const onClickFilter = () => {
-    console.log('filter');
+  const onClickFilter = (category:string) => {
+    setSelectedCategory(category);
+    setIsClick(!isClick);
   };
 
   useEffect(() => {
@@ -50,40 +77,36 @@ const HomePage: NextPage = () => {
           <CalendarContainer />
           <Button onClick={onClick}>Open</Button>
           {isOpen && (
-            <Modal width={1390} height={805}>
-              <S.SubScribeContainer>
-                {first && (
-                  <>
-                    <S.CloseBtn>
-                      <Button onClick={onClick}>X</Button>
-                    </S.CloseBtn>
-                    <S.Title>구독 중인 서비스가 있나요?</S.Title>
-                    <S.TagBox>
-                      {categoryArr.map((category, index) => (
-                        // eslint-disable-next-line react/no-array-index-key
-                        <Tag onClick={onClickFilter} key={index}>
-                          {category}
-                        </Tag>
-                      ))}
-                    </S.TagBox>
-                    <S.LogoBox>
-                      {AllLogoArr.map((logo, index) => (
-                        // eslint-disable-next-line react/no-array-index-key
-                        <S.Logo onClick={onClickhandler} key={index}>
-                          {logo}
-                        </S.Logo>
-                      ))}
-                    </S.LogoBox>
-                  </>
-                )}
-                {second && (
-                  <div style={{ display: 'flex' }}>
-                    <ServiceDetail />
-                    <Form />
-                  </div>
-                )}
-              </S.SubScribeContainer>
-            </Modal>
+          <Modal width={1390} height={805}>
+            <S.SubScribeContainer>
+              {first && (
+              <>
+                <S.CloseBtn>
+                  <Button onClick={onClick}>X</Button>
+                </S.CloseBtn>
+                <S.Title>구독 중인 서비스가 있나요?</S.Title>
+                <S.TagBox>
+                  {categoryArray.map(({ category, id }) => (
+                    <Tag onClick={() => onClickFilter(category)} isSelected={selectedCategory === category} key={id}>
+                      {category}
+                    </Tag>
+                  ))}
+                </S.TagBox>
+                <S.LogoBox>
+                  {selectedServices.slice(0, 10).map(({ image, id }) => (
+                    <S.Logo src={image} onClick={() => onClickhandler(id)} key={id} />
+                  ))}
+                </S.LogoBox>
+              </>
+              )}
+              {second && (
+              <div style={{ display: 'flex' }}>
+                <ServiceDetail serviceData={selectedServiceData} selectedServices={similarServices} />
+                <Form serviceData={selectedServiceData} />
+              </div>
+              )}
+            </S.SubScribeContainer>
+          </Modal>
           )}
         </div>
       ) : (

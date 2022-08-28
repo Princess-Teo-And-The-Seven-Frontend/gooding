@@ -26,6 +26,10 @@ export const Title = styled.div`
   text-align: center;
 `;
 
+export const ServiceBox = styled.div`
+
+`;
+
 export const TagBox = styled.div`
   display: flex;
   justify-content: center;
@@ -42,12 +46,14 @@ export const LogoBox = styled.div`
   margin-top: 72px;
   justify-content: center;
   align-items: center;
+  grid-column-start: auto;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled.img`
   width: 200px;
   height: 200px;
   background: #d9d9d9;
   border-radius: 50%;
   cursor: pointer;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
