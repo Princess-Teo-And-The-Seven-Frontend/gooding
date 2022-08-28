@@ -1,11 +1,15 @@
 import styled from '@emotion/styled';
 
+interface IDiv {
+  fontSize: string;
+  fontWeight: string;
+}
+
 export const BottomContainer = styled.div`
-  display: flex;
-  align-items: center;
-  padding-left: 26px;
+  padding: 26px;
   width: 350px;
-  height: 200px;
+  height: auto;
+  min-height: 270px;
   border: 1px solid #e3e5e6;
   border-radius: 0 0 11px 11px;
   box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.15);
@@ -28,11 +32,18 @@ export const Amount = styled.span`
 `;
 
 export const Img = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
 `;
 
-export const Span = styled.span`
-  font-size: 10px;
+export const SpanContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+`;
+export const Span = styled.span<IDiv>`
+  font-size: ${({ fontSize }) => fontSize}px;
+  font-weight: ${({ fontWeight }) => fontWeight};
+  margin-left: 10px;
 `;
