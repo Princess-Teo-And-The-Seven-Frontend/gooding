@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   display: flex;
+  position: relative;
   padding: 0px 30px;
 `;
 

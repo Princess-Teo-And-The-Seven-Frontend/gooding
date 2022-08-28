@@ -1,15 +1,18 @@
 import CalendarMyInfo from '@/components/features/CalendarMyInfo';
+import React, { ReactNode } from 'react';
 import { BigCalendar } from './BigCalendar';
-
 import * as S from './styled';
 
-// 빌드 에러때문에 주석처리 했습니다
+interface IProps {
+  children: ReactNode;
+}
 
-export const CalendarContainer = () => (
+export const CalendarContainer: React.FC<IProps> = ({ children }) => (
   <S.Container>
     <S.MyInfoContainer>
       <CalendarMyInfo />
     </S.MyInfoContainer>
     <BigCalendar />
+    {children}
   </S.Container>
 );
