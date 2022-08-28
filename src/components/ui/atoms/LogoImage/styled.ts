@@ -22,11 +22,11 @@ export const ImgWrapper = styled.div`
   }
 `;
 
-export const Overlay = styled.div`
+export const TextOverlay = styled.div`
   opacity: 0;
   position: absolute;
-  top: 40%;
-  left: 33%;
+  top: 33%;
+  left: 23%;
   color: #000;
   transition: 0.5s ease;
   font-size: 20px;
