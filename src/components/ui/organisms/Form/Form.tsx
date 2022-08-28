@@ -41,6 +41,16 @@ function Form({ serviceData }: IFormData) {
   });
   const setModalState = useSetRecoilState(modalAtom);
 
+  const successAlert = (data: string | undefined) => {
+    Swal.fire({
+      title: `${data} 구독을 추가했습니다!`,
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 1200,
+      timerProgressBar: true,
+    });
+  };
+
   const handleClickCancelButton = () => {
     setModalState((prev) => ({
       ...prev,
@@ -55,6 +65,7 @@ function Form({ serviceData }: IFormData) {
     if (!userData) {
       const registerData = [Object.assign(serviceData!, watch())];
       localStorage.setItem('gooding_user_data', JSON.stringify(registerData));
+      successAlert(serviceData?.name);
       setModalState((prev) => ({
         ...prev,
         isOpen: false,
@@ -68,13 +79,7 @@ function Form({ serviceData }: IFormData) {
     ) {
       const registerData = [...JSON.parse(userData), Object.assign(serviceData!, watch())];
       localStorage.setItem('gooding_user_data', JSON.stringify(registerData));
-      Swal.fire({
-        title: `${serviceData?.name} 구독을 추가했습니다!`,
-        icon: 'success',
-        showConfirmButton: false,
-        timer: 1200,
-        timerProgressBar: true,
-      });
+      successAlert(serviceData?.name);
       setModalState((prev) => ({
         ...prev,
         isOpen: false,
