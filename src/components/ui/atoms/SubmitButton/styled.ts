@@ -18,7 +18,6 @@ export const SubmitBtn = styled.button<ISubmitButton>`
   text-align: center;
   align-items: center;
   border-radius: 20px;
-
   &:hover {
     color: ${({ hoverColor }) => hoverColor};
     background-color: ${({ hoverBackgroundColor }) => hoverBackgroundColor};

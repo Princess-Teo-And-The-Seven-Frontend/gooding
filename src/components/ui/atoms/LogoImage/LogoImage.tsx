@@ -21,9 +21,9 @@ const LogoImage = ({
       <S.ImgWrapper onClick={onClick}>
         <S.ImageCircle size={size} src={src} className="image" />
         <S.TextOverlay className="text">
-          <p>{name}</p>
-          <p>{price}</p>
-          <p>{cycle}</p>
+          <S.NameText>{name}</S.NameText>
+          <S.CostText>{`${price}원`}</S.CostText>
+          <S.CycleText>{`(결제주기: ${cycle})`}</S.CycleText>
         </S.TextOverlay>
       </S.ImgWrapper>
     );

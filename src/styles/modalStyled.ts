@@ -26,9 +26,7 @@ export const Title = styled.div`
   text-align: center;
 `;
 
-export const ServiceBox = styled.div`
-
-`;
+export const ServiceBox = styled.div``;
 
 export const TagBox = styled.div`
   display: flex;

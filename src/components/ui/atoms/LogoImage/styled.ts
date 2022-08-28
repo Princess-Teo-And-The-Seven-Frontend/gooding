@@ -22,11 +22,27 @@ export const ImgWrapper = styled.div`
   }
 `;
 
+export const NameText = styled.p`
+  font-size: 24px;
+  font-weight: 700;
+  font-line: 16px;
+`;
+
+export const CostText = styled.p`
+  font-weight: 500;
+`;
+
+export const CycleText = styled.p`
+  font-size: 12px;
+  font-weight: 500;
+`;
+
 export const TextOverlay = styled.div`
   opacity: 0;
   position: absolute;
-  top: 33%;
-  left: 35%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #000;
   transition: 0.5s ease;
   font-size: 20px;

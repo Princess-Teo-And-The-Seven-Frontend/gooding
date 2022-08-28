@@ -25,7 +25,7 @@ const MyInfo: React.FC<IProps> = ({ serviceData }) => {
 
   return (
     <div>
-      <MyInfoTop totalService={totalService} />
+      <MyInfoTop totalService={totalService || 0} />
       <MyInfoBottom totalService={totalService || 0} totalPrice={totalPrice || 0} />
     </div>
   );

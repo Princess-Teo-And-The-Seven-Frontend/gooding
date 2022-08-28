@@ -19,14 +19,13 @@ const MyInfoTop = ({ totalService }: IProps) => {
   const [myInfo, setMyInfo] = useState<IMyInfo>(initialMyInfo);
 
   useEffect(() => {
-    const isUserSubsCount = totalService !== undefined;
-    if (isUserSubsCount && totalService === 1) {
+    if (totalService === 1) {
       setMyInfo({ topPercent: 60, nickname: '찍먹 구독러' });
-    } else if (isUserSubsCount && totalService <= 2) {
+    } else if (totalService === 2) {
       setMyInfo({ topPercent: 50, nickname: '평균 구독러' });
-    } else if (isUserSubsCount && totalService <= 6) {
+    } else if (totalService > 2 && totalService <= 6) {
       setMyInfo({ topPercent: 20, nickname: '프로 구독러' });
-    } else if (isUserSubsCount && totalService > 6) {
+    } else if (totalService > 6) {
       setMyInfo({ topPercent: 2, nickname: '부자 구독러' });
     }
   }, [totalService]);

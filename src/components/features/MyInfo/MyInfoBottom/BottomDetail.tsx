@@ -6,14 +6,14 @@ type DetailType = 'totalService' | 'totalPrice';
 
 type ServiceTextType = {
   totalService: {
-    title: string,
-    unit: string
-  },
+    title: string;
+    unit: string;
+  };
   totalPrice: {
-    title: string,
-    unit: string
-  }
-}
+    title: string;
+    unit: string;
+  };
+};
 
 interface IProps {
   type: DetailType;

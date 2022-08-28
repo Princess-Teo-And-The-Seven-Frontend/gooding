@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Tag from '@/components/ui/atoms/Tag';
-import { SERVICES } from '@/constants/index';
 import { ServiceDataType } from '@/types/dataType';
 import SubList from './SubLIst/SubList';
 
@@ -17,7 +16,7 @@ const SubsListContainer: React.FC<IProps> = ({ serviceData }) => {
 
   const selectedServices = serviceData?.filter((service) => service.category === selectedCategory);
 
-  const categoryArray = Array.from(new Set(SERVICES.map((service) => service.category))).map(
+  const categoryArray = Array.from(new Set(serviceData.map((service) => service.category))).map(
     (category, index) => {
       const categoryUnit = {
         id: index,
@@ -29,19 +28,24 @@ const SubsListContainer: React.FC<IProps> = ({ serviceData }) => {
 
   return (
     <S.Div>
-      <S.Text>내가 구독 중인 서비스 ✨ </S.Text>
-      <S.TagContainer>
-        {categoryArray.map((item) => (
-          <Tag
-            isSelected={item.category === selectedCategory}
-            onClick={() => handleSelected(item.category)}
-            key={item.id}
-          >
-            {item.category}
-          </Tag>
-        ))}
-      </S.TagContainer>
-      <SubList userData={selectedServices} />
+      <S.Text> ✨ 내가 구독 중인 서비스 ✨ </S.Text>
+      {selectedServices.length === 0 ? <S.NoSubsText>구독을 안하고 계시네요! 구딩과 함께 구독해볼까요?</S.NoSubsText> : (
+        <>
+          <S.TagContainer>
+            {categoryArray.map((item) => (
+              <Tag
+                isSelected={item.category === selectedCategory}
+                onClick={() => handleSelected(item.category)}
+                key={item.id}
+              >
+                {item.category}
+              </Tag>
+            ))}
+          </S.TagContainer>
+          <SubList userData={selectedServices} />
+        </>
+      )}
+
     </S.Div>
   );
 };
