@@ -1,14 +1,15 @@
 import React from 'react';
 
-import * as S from './styled';
+// import * as S from './styled';
 
-const CalendarMyInfoBottomDetail: React.FC = ({ scheduledToPayService }) => {
-  const leftDay = scheduledToPayService.name;
+const CalendarMyInfoBottomDetail: React.FC = () => {
+  // const leftDay = scheduledToPayService.name;
+  console.log('test');
   return (
     <div>
-      <S.Img src={scheduledToPayService.image} />
+      {/* <S.Img src={scheduledToPayService.image} />
       <span>{scheduledToPayService.date}</span>
-      <S.Span>{leftDay}</S.Span>
+      <S.Span>{leftDay}</S.Span> */}
     </div>
   );
 };
