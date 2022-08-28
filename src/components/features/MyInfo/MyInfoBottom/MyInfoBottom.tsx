@@ -11,14 +11,8 @@ interface IProps {
 
 const MyInfoBottom: React.FC<IProps> = ({ totalService, totalPrice }) => (
   <S.BottomContainer>
-    <BottomDetail
-      type="totalService"
-      totalAmount={totalService}
-    />
-    <BottomDetail
-      type="totalPrice"
-      totalAmount={totalPrice}
-    />
+    <BottomDetail type="totalService" totalAmount={totalService} />
+    <BottomDetail type="totalPrice" totalAmount={totalPrice} />
   </S.BottomContainer>
 );
 

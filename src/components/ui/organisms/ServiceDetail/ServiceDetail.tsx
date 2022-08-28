@@ -9,11 +9,11 @@ interface ServiceType {
   image: string;
 }
 interface IFormData {
-  serviceData : ServiceType | null;
+  serviceData: ServiceType | null;
   selectedServices: ServiceType[];
 }
 
-const ServiceDetail = ({ serviceData, selectedServices } : IFormData) => (
+const ServiceDetail = ({ serviceData, selectedServices }: IFormData) => (
   <S.DetailContainer>
     <S.Image src={serviceData?.image} alt={serviceData?.name} />
     <S.FirstBox>
