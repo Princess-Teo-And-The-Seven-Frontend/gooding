@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
 import * as S from './styled';
 
@@ -13,9 +13,9 @@ const initialMyInfo = {
 };
 
 const MyInfoTop = () => {
-  const [myInfo, setMyInfo] = React.useState<IMyInfo>(initialMyInfo);
+  const [myInfo, setMyInfo] = useState<IMyInfo>(initialMyInfo);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const userSubsCount = window.localStorage.getItem('userInfo')?.match(/}/g)?.length;
     const isUserSubsCount = userSubsCount !== undefined;
     if (isUserSubsCount && userSubsCount > 0) {
