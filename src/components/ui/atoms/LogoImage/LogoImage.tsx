@@ -7,14 +7,13 @@ interface IProps {
   price: number;
   shape: string;
   size: number;
+  cycle: string;
   onClick: () => void;
 }
 
 // 로고 원형 이미지 입니다! 마이페이지 외에는 shape 없이 쓰면 될 것 같습니다!
 
-const LogoImage = ({
-  src, name, price, shape, size, onClick,
-}: IProps) => {
+const LogoImage = ({ src, name, price, shape, size, onClick, cycle }: IProps) => {
   if (shape === 'hover') {
     return (
       <S.ImgWrapper onClick={onClick}>
@@ -22,7 +21,7 @@ const LogoImage = ({
         <S.TextOverlay className="text">
           <p>{name}</p>
           <p>{price}</p>
-          <p>결제 정보일</p>
+          <p>{cycle}</p>
         </S.TextOverlay>
       </S.ImgWrapper>
     );

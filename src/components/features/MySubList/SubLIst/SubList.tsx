@@ -21,6 +21,7 @@ const SubList: React.FC<IProps> = ({ userData }) => {
             src={item.image}
             name={item.name}
             price={+item.price}
+            cycle={item.cycle}
             shape="hover"
             size={170}
             onClick={() => handleLogoClick(item.name)}
