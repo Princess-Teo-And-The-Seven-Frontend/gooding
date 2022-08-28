@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 
 import { userNickname } from '@/store/atom';
 import { SubmitButton } from '@/components/ui/atoms/SubmitButton';
+import { getLocalstorage } from '@/utils';
 
 import * as S from './styled';
 
@@ -25,7 +26,7 @@ export const Login = () => {
 
   const SubmitNickname: SubmitHandler<LoginInputInit> = (data: LoginInputInit) => {
     localStorage.setItem('gooding', JSON.stringify(data));
-    const user = JSON.parse(localStorage.getItem('gooding') as string);
+    const user = getLocalstorage();
     if (user) setNickname(user.nickname);
   };
 
