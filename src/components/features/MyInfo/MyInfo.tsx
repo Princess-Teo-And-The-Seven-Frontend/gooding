@@ -25,10 +25,7 @@ const MyInfo = () => {
   return (
     <>
       <MyInfoTop />
-      <MyInfoBottom
-        totalService={totalService}
-        totalPrice={totalPrice}
-      />
+      <MyInfoBottom totalService={totalService} totalPrice={totalPrice} />
     </>
   );
 };

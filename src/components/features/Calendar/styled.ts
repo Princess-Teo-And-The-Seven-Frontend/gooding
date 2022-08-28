@@ -21,4 +21,11 @@ export const Img = styled.img`
   width: 24px;
   height: 24px;
   cursor: pointer;
+  border-radius: 50%;
+  margin: 2px;
+`;
+
+export const CalendarImgContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
