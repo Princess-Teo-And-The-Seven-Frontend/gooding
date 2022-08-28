@@ -1,5 +1,5 @@
 <h1><p align="center">📮 구딩 📮<p></h1>
-<p align="center"><img width="89" alt="image" src="https://user-images.githubusercontent.com/73640737/187012652-0b73952f-cc8e-414c-9fc7-43a340014fc5.png">
+<p align="center"><img width="89" alt="image" src="public/gooding_logo.png">
 </p>
 
 | 구딩과 함께 한 눈에 편리하게 구독을 관리해보세요!
@@ -10,10 +10,15 @@
 
 ## 📗 조원소개
 
-|                             EASY                             |                          레프                           |                          Hyun                          |                         찌나오                         |                               준                               |                             Ayaan                             |                            나동                             |
-| :----------------------------------------------------------: | :-----------------------------------------------------: | :----------------------------------------------------: | :----------------------------------------------------: | :------------------------------------------------------------: | :-----------------------------------------------------------: | :---------------------------------------------------------: |
-| <img src="https://github.com/thinkanddoit.png" width="200"/> | <img src="https://github.com/anottrx.png" width="200"/> | <img src="https://github.com/qlemql.png" width="200"/> | <img src="https://github.com/zzinao.png" width="200"/> | <img src="https://github.com/Junseongparkme.png" width="200"/> | <img src="https://github.com/LEEHYUNHO2001.png" width="200"/> | <img src="https://github.com/Najeong-Kim.png" width="200"/> |
-|       [@thinkanddoit](https://github.com/thinkanddoit)       |         [@anottrx](https://github.com/anottrx)          |          [@qlemql](https://github.com/qlemql)          |          [@zzinao](https://github.com/zzinao)          |      [@Junseongparkme](https://github.com/Junseongparkme)      |      [@LEEHYUNHO2001](https://github.com/LEEHYUNHO2001)       |       [@Najeong-Kim](https://github.com/Najeong-Kim)        |
+|Nickname|Profile|Github|Introduce
+|:---:|:---:|:---:|:---:|
+|EASY|<img src="https://github.com/thinkanddoit.png" width="70"/>|[@thinkanddoit](https://github.com/thinkanddoit)|
+|레프|<img src="https://github.com/anottrx.png" width="70"/>|[@anottrx](https://github.com/anottrx)|
+|Hyun|<img src="https://github.com/qlemql.png" width="70"/>|[@qlemql](https://github.com/qlemql)|
+|찌나오|<img src="https://github.com/zzinao.png" width="70"/>|[@zzinao](https://github.com/zzinao)|
+|준|<img src="https://github.com/Junseongparkme.png" width="70"/>|[@Junseongparkme](https://github.com/Junseongparkme)|
+|Ayaan|<img src="https://github.com/LEEHYUNHO2001.png" width="70"/>|[@LEEHYUNHO2001](https://github.com/LEEHYUNHO2001)|
+|나동|<img src="https://github.com/Najeong-Kim.png" width="70"/>|[@Najeong-Kim](https://github.com/Najeong-Kim)|
 
 ## 📘 프로젝트 소개
 
