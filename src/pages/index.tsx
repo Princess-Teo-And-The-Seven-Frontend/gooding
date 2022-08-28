@@ -9,16 +9,12 @@ import { BigCalendar } from '@/components/features/Calendar';
 import Header from '@/components/features/Header';
 import * as S from '../styles/modalStyled';
 
-interface ICategories {}
-
-interface ILogo {}
-
 const HomePage: NextPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [first, setFirst] = useState(true);
   const [second, setSecond] = useState(false);
-  const categoryArr: ICategories[] = ['OTT', '음악', '도서', '쇼핑', '프로그램'];
-  const AllLogoArr: ILogo[] = ['', '', '', '', '', '', '', '', '', ''];
+  const categoryArr = ['OTT', '음악', '도서', '쇼핑', '프로그램'];
+  const AllLogoArr = ['', '', '', '', '', '', '', '', '', ''];
 
   const onClickhandler = () => {
     console.log('test consolelog');
@@ -72,13 +68,6 @@ const HomePage: NextPage = () => {
                 <Form />
               </div>
             )}
-          </S.SubScribeContainer>
-        </Modal>
-      )}
-    </>
-  );
-};
-export default HomePage;
           </S.SubScribeContainer>
         </Modal>
       )}
