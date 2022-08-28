@@ -56,7 +56,7 @@ export const CalendarDateHeader = ({ label }: LabelProps) => {
 
             return (
               <div key={`CalendarDateHeader-payingDay-${src}`}>
-                <S.Img src={src} onClick={() => onClick(serviceName)} />
+                <S.Img src={src} alt={serviceName} onClick={() => onClick(serviceName)} />
               </div>
             );
           })}
