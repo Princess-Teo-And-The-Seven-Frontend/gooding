@@ -13,7 +13,9 @@ interface IProps {
 
 // 로고 원형 이미지 입니다! 마이페이지 외에는 shape 없이 쓰면 될 것 같습니다!
 
-const LogoImage = ({ src, name, price, shape, size, onClick, cycle }: IProps) => {
+const LogoImage = ({
+  src, name, price, shape, size, onClick, cycle,
+}: IProps) => {
   if (shape === 'hover') {
     return (
       <S.ImgWrapper onClick={onClick}>
