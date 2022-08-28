@@ -10,7 +10,7 @@ const TagList = () => {
   return (
     <S.TagContainer>
       {category.map((item: string) => (
-        <Tag onClick={onClick} key={item}>
+        <Tag isSelected={false} onClick={onClick} key={item}>
           {item}
         </Tag>
       ))}

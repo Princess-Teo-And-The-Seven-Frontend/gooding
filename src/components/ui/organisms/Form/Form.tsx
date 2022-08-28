@@ -19,7 +19,7 @@ interface ServiceType {
 }
 
 interface IFormData {
-  serviceData : ServiceType | null
+  serviceData : ServiceType | null;
 }
 
 function Form({ serviceData }: IFormData) {
@@ -36,10 +36,10 @@ function Form({ serviceData }: IFormData) {
   const handleClickRegisterButton = () => {
     const userData = localStorage.getItem('gooding_user_data');
     if (userData) {
-      const registerData = [...JSON.parse(userData), watch()];
+      const registerData = [...JSON.parse(userData), Object.assign(serviceData!, watch())];
       localStorage.setItem('gooding_user_data', JSON.stringify(registerData));
     } else {
-      localStorage.setItem('gooding_user_data', JSON.stringify([watch()]));
+      localStorage.setItem('gooding_user_data', JSON.stringify([Object.assign(serviceData!, watch())]));
     }
   };
   const handleClickCancelButton = () => {
