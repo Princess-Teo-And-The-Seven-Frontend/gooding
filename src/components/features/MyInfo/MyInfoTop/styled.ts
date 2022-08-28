@@ -23,10 +23,6 @@ export const YouText = styled.div`
   color: #fff;
 `;
 
-export const EffectText = styled.div`
-  display: none;
-`;
-
 export const MyInfoText = styled.div<IDiv>`
   margin-top: ${({ marginTop }) => marginTop}px;
   font-size: ${({ fontSize }) => fontSize}px;

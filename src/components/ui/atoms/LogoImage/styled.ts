@@ -44,4 +44,5 @@ export const ImageCircle = styled.div<ICircle>`
   cursor: pointer;
   transform: scale(1);
   transition: transform 0.3s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 `;
