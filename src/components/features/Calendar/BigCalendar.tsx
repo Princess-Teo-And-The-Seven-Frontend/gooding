@@ -1,3 +1,4 @@
+import React, { ReactNode } from 'react';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
@@ -9,8 +10,10 @@ import { CalendarToolBar } from './CalendarToolBar';
 import { CalendarDateHeader } from './CalendarDateHeader';
 
 const localizer = momentLocalizer(moment);
-
-export const BigCalendar = () => (
+interface IProps {
+  children: ReactNode;
+}
+export const BigCalendar: React.FC<IProps> = ({ children }) => (
   <S.BigCalendarContainer>
     <Calendar
       localizer={localizer}
@@ -25,5 +28,6 @@ export const BigCalendar = () => (
         },
       }}
     />
+    {children}
   </S.BigCalendarContainer>
 );

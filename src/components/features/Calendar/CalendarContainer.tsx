@@ -12,7 +12,6 @@ export const CalendarContainer: React.FC<IProps> = ({ children }) => (
     <S.MyInfoContainer>
       <CalendarMyInfo />
     </S.MyInfoContainer>
-    <BigCalendar />
-    {children}
+    <BigCalendar>{children}</BigCalendar>
   </S.Container>
 );
