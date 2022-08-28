@@ -1,17 +1,16 @@
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-
-import styled from '@emotion/styled';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 
 import { userServices } from '@/constants';
 
-import { CalendarToolBar, CalendarDateHeader } from '.';
 import * as S from './styled';
+import { CalendarToolBar } from './CalendarToolBar';
+import { CalendarDateHeader } from './CalendarDateHeader';
 
 const localizer = momentLocalizer(moment);
 
-const BigCalendar = () => (
+export const BigCalendar = () => (
   <S.Container>
     <Calendar
       localizer={localizer}
@@ -28,5 +27,3 @@ const BigCalendar = () => (
     />
   </S.Container>
 );
-
-export default BigCalendar;

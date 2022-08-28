@@ -1,2 +1,1 @@
-export * from './CalendarDateHeader';
-export * from './CalendarToolBar';
+export * from './BigCalendar';
