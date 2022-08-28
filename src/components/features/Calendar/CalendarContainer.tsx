@@ -1,4 +1,4 @@
-// import MyInfo from '@/components/features/MyInfo';
+import CalendarMyInfo from '@/components/features/CalendarMyInfo';
 import { BigCalendar } from './BigCalendar';
 
 import * as S from './styled';
@@ -7,9 +7,9 @@ import * as S from './styled';
 
 export const CalendarContainer = () => (
   <S.Container>
-    {/* <S.MyInfoContainer>
-      <MyInfo />
-    </S.MyInfoContainer> */}
+    <S.MyInfoContainer>
+      <CalendarMyInfo />
+    </S.MyInfoContainer>
     <BigCalendar />
   </S.Container>
 );
