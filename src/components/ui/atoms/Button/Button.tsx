@@ -7,7 +7,7 @@ interface IProps {
   onClick: () => void;
 }
 
-const Button = ({ children, onClick }: IProps) => (
+const Button: React.FC<IProps> = ({ children, onClick }) => (
   <S.Div
     backgroundColor="#000000"
     color="#BECCE9"

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 interface IDiv {
   backgroundColor: string;
   color: string;
-    hoverBackgroundColor: string;
+  hoverBackgroundColor: string;
   hoverColor: string;
 }
 
@@ -22,5 +22,6 @@ export const Div = styled.div<IDiv>`
   &:hover {
     color: ${({ hoverColor }) => hoverColor};
     background-color: ${({ hoverBackgroundColor }) => hoverBackgroundColor};
+    transition: transform 0.3s;
   }
 `;
