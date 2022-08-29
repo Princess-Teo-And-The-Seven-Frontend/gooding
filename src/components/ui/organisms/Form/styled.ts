@@ -31,3 +31,8 @@ export const ErrorMessage = styled.span`
   font-size: 0.75rem;
   margin-bottom: 0.5rem;
 `;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;

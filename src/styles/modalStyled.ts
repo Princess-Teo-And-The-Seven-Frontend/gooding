@@ -1,19 +1,21 @@
 import styled from '@emotion/styled';
 
 export const SubScribeContainer = styled.div`
-  width: 1390px;
-  height: 805px;
+  width: 100%;
+  height: 100%;
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+  padding: 30px;
 `;
 
 export const CloseBtn = styled.div`
   position: absolute;
-  top: 50px;
-  right: 50px;
+  top: 20px;
+  right: 25px;
   cursor: pointer;
 `;
 
@@ -26,6 +28,16 @@ export const Title = styled.div`
   text-align: center;
 `;
 
+export const WarningMessage = styled.div`
+  height: 40px;
+  color: #000000;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  text-align: center;
+  margin-bottom: 70px;
+`;
+
 export const ServiceBox = styled.div``;
 
 export const TagBox = styled.div`
@@ -36,20 +48,20 @@ export const TagBox = styled.div`
 `;
 
 export const LogoBox = styled.div`
-  width: 1234px;
-  height: 429px;
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: repeat(5, 200px);
-  gap: 40px;
-  margin-top: 72px;
+  grid-template-columns: repeat(5, 150px);
+  gap: 30px;
+  margin-top: 30px;
   justify-content: center;
   align-items: center;
   grid-column-start: auto;
 `;
 
 export const Logo = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background: #d9d9d9;
   border-radius: 50%;
   cursor: pointer;

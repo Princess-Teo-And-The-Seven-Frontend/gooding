@@ -29,7 +29,7 @@ export const Container = styled.div<ContainerProps>`
   height: ${({ height }) => height}px;
   background: #ffffff;
   z-index: 5;
-  border-radius: 56px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
