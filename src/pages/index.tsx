@@ -101,41 +101,41 @@ const HomePage: NextPage = () => {
           {modalState.isOpen
           && !(modalState.isWorning.hasSubscribe || modalState.isWorning.isDuplicate) && (
             <Modal width={1000} height={600}>
-            <S.SubScribeContainer>
-              {!modalState.isClicked ? (
-                <>
-                  <S.CloseBtn>
-                    <Button onClick={onClick}>X</Button>
-                  </S.CloseBtn>
-                  <S.Title>구독 중인 서비스가 있나요?</S.Title>
-                  <S.TagBox>
-                    {categoryArray.map(({ category, id }) => (
-                      <Tag
-                        onClick={() => onClickFilter(category)}
-                        isSelected={modalState.selectedCategory === category}
-                        key={id}
-                      >
-                        {category}
-                      </Tag>
-                    ))}
-                  </S.TagBox>
-                  <S.LogoBox>
-                    {selectedServices.slice(0, 10).map(({ image, id }) => (
-                      <S.Logo src={image} onClick={() => onClickhandler(id)} key={id} />
-                    ))}
-                  </S.LogoBox>
-                </>
-              ) : (
-                <div style={{ display: 'flex' }}>
-                  <ServiceDetail
-                    serviceData={selectedServiceData}
-                    selectedServices={similarServices}
-                  />
-                  <Form serviceData={selectedServiceData} />
-                </div>
-              )}
-            </S.SubScribeContainer>
-          </Modal>
+              <S.SubScribeContainer>
+                {!modalState.isClicked ? (
+                  <>
+                    <S.CloseBtn>
+                      <Button onClick={onClick}>X</Button>
+                    </S.CloseBtn>
+                    <S.Title>구독 중인 서비스가 있나요?</S.Title>
+                    <S.TagBox>
+                      {categoryArray.map(({ category, id }) => (
+                        <Tag
+                          onClick={() => onClickFilter(category)}
+                          isSelected={modalState.selectedCategory === category}
+                          key={id}
+                        >
+                          {category}
+                        </Tag>
+                      ))}
+                    </S.TagBox>
+                    <S.LogoBox>
+                      {selectedServices.slice(0, 10).map(({ image, id }) => (
+                        <S.Logo src={image} onClick={() => onClickhandler(id)} key={id} />
+                      ))}
+                    </S.LogoBox>
+                  </>
+                ) : (
+                  <div style={{ display: 'flex' }}>
+                    <ServiceDetail
+                      serviceData={selectedServiceData}
+                      selectedServices={similarServices}
+                    />
+                    <Form serviceData={selectedServiceData} />
+                  </div>
+                )}
+              </S.SubScribeContainer>
+            </Modal>
           )}
           {(modalState.isWorning.hasSubscribe || modalState.isWorning.isDuplicate) && (
             <Modal width={1000} height={600}>
