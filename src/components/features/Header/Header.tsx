@@ -31,6 +31,7 @@ const Header = ({ isMain, setIsMain }: IProps) => {
       cancelButtonColor: '#d33',
     }).then((result) => {
       if (result.isConfirmed) {
+        setIsMain(true);
         Swal.fire({
           title: '곧 로그아웃됩니다.',
           text: '구딩을 다음에 또 이용해주세요!',
