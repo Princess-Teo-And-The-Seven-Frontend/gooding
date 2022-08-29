@@ -21,7 +21,9 @@ export const Div = styled.div<IDiv>`
   background-color: ${({ backgroundColor }) => backgroundColor};
   cursor: pointer;
   text-align: center;
-  align-items: center;
+  display:flex;
+  justify-content:center;
+  align-items: flex-end;
   line-height: 70px;
   border-radius: 50%;
   &:hover {
