@@ -16,7 +16,6 @@ import { userNickname, modalAtom } from '@/store/atom';
 import { SERVICES } from '@/constants/index';
 import { getLocalstorage } from '@/utils';
 import MyPage from '@/components/features/MyPage';
-import PlustBtn from '../../public/services_logo/iconPlus.svg';
 import * as S from '../styles/modalStyled';
 
 interface ISelectedServiceData {
