@@ -135,7 +135,9 @@ function Form({ serviceData }: IFormData) {
       <S.Title>메모</S.Title>
       <S.Input as="textarea" id="memo" {...register('memo')} />
       <S.ButtonContainer>
-        <SubmitButton>등록</SubmitButton>
+        <SubmitButton height="30px" width="100px">
+          등록
+        </SubmitButton>
         <Button onClick={handleClickCancelButton}>취소</Button>
       </S.ButtonContainer>
     </S.Form>

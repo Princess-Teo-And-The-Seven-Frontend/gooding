@@ -5,14 +5,18 @@ interface ISubmitButton {
   color: string;
   hoverBackgroundColor: string;
   hoverColor: string;
+  width: string;
+  height: string;
+  padding: string;
+  fontSize: string;
 }
 
 export const SubmitBtn = styled.button<ISubmitButton>`
-  min-width: 100px;
-  height: 30px;
-  padding: 8px;
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  padding: ${({ padding }) => padding};
   font-weight: 600;
-  font-size: 16px;
+  font-size: ${({ fontSize }) => fontSize};
   color: ${({ color }) => color};
   background-color: ${({ backgroundColor }) => backgroundColor};
   cursor: pointer;
