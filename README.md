@@ -61,12 +61,10 @@
       <img src="https://github.com/anottrx.png" alt="레프 프로필" />
     </td>
     <td align="center" width="150px">
-      <img src="https://github.com/qlemql.png
-" alt="Hyun 프로필" />
+      <img src="https://github.com/qlemql.png" alt="Hyun 프로필" />
     </td>
     <td align="center" width="150px">
-      <img src="https://github.com/zzinao.png
-" alt="찌나오 프로필" />
+      <img src="https://github.com/zzinao.png" alt="찌나오 프로필" />
     </td>
     <td align="center" width="150px">
       <img src="https://github.com/Junseongparkme.png" alt="준 프로필" />
