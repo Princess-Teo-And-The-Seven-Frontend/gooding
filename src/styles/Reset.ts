@@ -88,8 +88,16 @@ export const reset = css`
     font-size: 100%;
     vertical-align: baseline;
     box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 400;
+    // font-family: 'Noto Sans KR', sans-serif;
+    // font-weight: 400;
+    // font-family: 'NanumSquareRound';
+    // src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff')
+    // format('woff');
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff')
+      format('woff');
+    font-weight: normal;
+    font-style: normal;
   }
   article,
   aside,
