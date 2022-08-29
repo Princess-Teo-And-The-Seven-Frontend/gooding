@@ -1,6 +1,6 @@
 <h1><p align="center">📮 구딩 📮<p></h1>
 <p align="center">
-  <img width="89" alt="구딩 로고" src="gooding_logo.png">
+  <img width="89" alt="구딩 로고" src="public/gooding_logo.png">
 <!-- <img width="89" alt="image" src="https://user-images.githubusercontent.com/73640737/187012652-0b73952f-cc8e-414c-9fc7-43a340014fc5.png"> -->
 </p>
 
