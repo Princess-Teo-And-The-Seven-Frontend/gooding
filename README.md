@@ -28,90 +28,15 @@
 
 ## 📗 조원 소개
 
-<table>
-  <tr style="font-weight: 600;">
-    <td align="center">
-      EASY
-    </td>
-    <td align="center">
-      레프
-    </td>
-    <td align="center">
-      Hyun
-    </td>
-    <td align="center">
-      찌나오
-    </td>
-    <td align="center">
-      준
-    </td>
-    <td align="center">
-      Ayaan
-    </td>
-    <td align="center">
-      나동
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="70px">
-      <img src="https://github.com/thinkanddoit.png" alt="EASY 프로필"/>
-    </td>
-    <td align="center" width="70px">
-      <img src="https://github.com/anottrx.png" alt="레프 프로필" />
-    </td>
-    <td align="center" width="70px">
-      <img src="https://github.com/qlemql.png" alt="Hyun 프로필" />
-    </td>
-    <td align="center" width="70px">
-      <img src="https://github.com/zzinao.png" alt="찌나오 프로필" />
-    </td>
-    <td align="center" width="70px">
-      <img src="https://github.com/Junseongparkme.png" alt="준 프로필" />
-    </td>
-    <td align="center" width="70px">
-      <img src="https://github.com/LEEHYUNHO2001.png" alt="Ayaan 프로필" />
-    </td>
-    <td align="center" width="70px">
-      <img src="https://github.com/Najeong-Kim.png" alt="나동 프로필" />
-    </td>
-  </tr>
-  <tr style="font-size: 10px;">
-    <td align="center">
-      <a href="https://github.com/thinkanddoit" target="_blank">
-        thinkanddoit
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/anottrx" target="_blank">
-        anottrx
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/qlemql" target="_blank">
-        qlemql
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/zzinao" target="_blank">
-        zzinao
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/Junseongparkme" target="_blank">
-        Junseongparkme
-    </td>
-    <td align="center">
-      <a href="https://github.com/LEEHYUNHO2001" target="_blank">
-        LEEHYUNHO2001
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/Najeong-Kim" target="_blank">
-        Najeong-Kim
-      </a>
-    </td>
-  </tr>
-</table>
+|Nickname|Profile|Github|
+|:---:|:---:|:---:|
+|EASY|<img src="https://github.com/thinkanddoit.png" alt="EASY 프로필"/>|<a href="https://github.com/thinkanddoit" target="_blank">@thinkanddoit</a>|
+|레프|<img src="https://github.com/anottrx.png" alt="레프 프로필"/>|<a href="https://github.com/anottrx" target="_blank">@anottrx</a>|
+|Hyun|<img src="https://github.com/qlemql.png" alt="Hyun 프로필"/>|<a href="https://github.com/qlemql" target="_blank">@qlemql</a>|
+|찌나오|<img src="https://github.com/zzinao.png" alt="찌나오 프로필"/>|<a href="https://github.com/zzinao" target="_blank">@zzinao</a>|
+|준|<img src="https://github.com/Junseongparkme.png" alt="준 프로필"/>|<a href="https://github.com/Junseongparkme" target="_blank">@Junseongparkme</a>|
+|Ayaan|<img src="https://github.com/LEEHYUNHO2001.png" alt="Ayaan 프로필"/>|<a href="https://github.com/LEEHYUNHO2001" target="_blank">@LEEHYUNHO2001</a>|
+|나동|<img src="https://github.com/Najeong-Kim.png" alt="나동 프로필"/>|<a href="https://github.com/Najeong-Kim" target="_blank">@Najeong-Kim</a>|
 
 ## 📘 프로젝트 소개
 
