@@ -8,6 +8,7 @@ interface IDiv {
 }
 
 export const Div = styled.div<IDiv>`
+  z-index: 10;
   position: absolute;
   right: 40px;
   bottom: 40px;
