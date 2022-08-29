@@ -14,9 +14,28 @@ export const Container = styled.section`
   }
 `;
 
+export const IntroducTitleText = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  justify-content: center;
+  line-height: 1.5;
+`;
+
+export const Header = styled.div`
+  padding: 16px 28px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const IntroduceMainPageWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  margin-bottom: 72px;
 `;
 
 export const IntroducMainPageeText = styled.div`
@@ -38,10 +57,6 @@ export const Logo = styled.img`
   width: 200px;
   height: 200px;
   margin-right: 50px;
-`;
-
-export const Header = styled.div`
-  padding: 12px 15px;
 `;
 
 export const TitleLogo = styled.img`
