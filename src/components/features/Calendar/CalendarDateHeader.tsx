@@ -1,6 +1,7 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 import { SERVICES } from '@/constants';
 
@@ -42,7 +43,12 @@ export const CalendarDateHeader = ({ label }: LabelProps) => {
   }, [userData]);
 
   const onClick = (title: string) => {
-    alert('구딩을 잘 이용하고 계신가요? 유료로 전환하세요!');
+    Swal.fire({
+      title: '구딩을 잘 이용하고 계신가요? 유료로 전환하세요!',
+      icon: 'warning',
+      confirmButtonText: '확인',
+    });
+    // alert('구딩을 잘 이용하고 계신가요? 유료로 전환하세요!');
     console.log(`click : ${title}`);
   };
 
