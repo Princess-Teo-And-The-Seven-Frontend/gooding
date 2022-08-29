@@ -28,6 +28,16 @@ export const Title = styled.div`
   text-align: center;
 `;
 
+export const WarningMessage = styled.div`
+  height: 40px;
+  color: #000000;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  text-align: center;
+  margin-bottom: 70px;
+`;
+
 export const ServiceBox = styled.div``;
 
 export const TagBox = styled.div`
