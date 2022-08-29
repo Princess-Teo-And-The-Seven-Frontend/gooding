@@ -8,7 +8,7 @@ interface IDiv {
 }
 
 export const Div = styled.div<IDiv>`
-  width: 100px;
+  width: 105px;
   height: 30px;
   padding: 8px;
   font-weight: 600;
