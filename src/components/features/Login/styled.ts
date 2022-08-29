@@ -2,11 +2,20 @@ import { Palette } from '@/constants';
 import styled from '@emotion/styled';
 
 export const Container = styled.section`
+  position: relative;
   width: 100%;
   height: 100vh;
   background-image: url('./introduce/gooding_background.jpeg');
   background-position: top;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const IntroduceContaner = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const IntroducTitleText = styled.div`
@@ -31,6 +40,7 @@ export const IntroduceMainPageWrapper = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 72px;
+  margin-top: 72px;
 `;
 
 export const IntroducMainPageeText = styled.div`
@@ -64,6 +74,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 64px 0 40px 0;
+  margin: auto;
 `;
 
 export const TitleText = styled.div`
@@ -96,12 +107,13 @@ export const Input = styled.input`
   margin-bottom: 8px;
   &::placeholder {
     text-align: center;
-    // position: absolute;
-    // top: 50%;
-    // left: 0;
-    // transform: translateY(-50%);
-    // width: 100%;
-    // color: #7d70fa;
   }
-  // color: #7d70fa;
+`;
+
+export const ArrowBottom = styled.img`
+  position: absolute;
+  left: 50%;
+  bottom: 200px;
+  transform: translate(-50%, 0);
+  width: 50px;
 `;
