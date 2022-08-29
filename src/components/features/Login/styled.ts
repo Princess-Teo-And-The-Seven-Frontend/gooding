@@ -1,4 +1,5 @@
 import { Palette } from '@/constants';
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const Container = styled.section`
@@ -110,10 +111,25 @@ export const Input = styled.input`
   }
 `;
 
+const movingAnimation = keyframes`
+    from {
+      left: 0px;
+      top: -95px;
+   }
+   
+   to {
+      left: 0px;
+      top: -89px;
+   }
+`;
+
 export const ArrowBottom = styled.img`
   position: absolute;
   left: 50%;
   bottom: 200px;
   transform: translate(-50%, 0);
+  display: flex;
+  position: relative;
+  animation: ${movingAnimation} 0.7s ease-in alternate infinite;
   width: 50px;
 `;
