@@ -5,12 +5,11 @@ export const DetailContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  transform: translate(15%, -15%);
 `;
 
 export const FirstBox = styled.div`
   display: flex;
-  width: 500px;
+  width: 400px;
   margin-top: 15px;
 `;
 
@@ -25,7 +24,7 @@ export const ServiceTitle3 = styled.div``;
 
 export const CategoryBox = styled.div`
   display: flex;
-  width: 500px;
+  width: 400px;
   margin-top: 15px;
 `;
 
@@ -46,7 +45,7 @@ export const SimilarService = styled.div`
 
 export const SimilarServiceLogoBox = styled.div`
   display: flex;
-  width: 500px;
+  width: 400px;
   margin-top: 15px;
 `;
 
