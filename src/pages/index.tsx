@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import type { NextPage } from 'next';
 import { useRecoilState } from 'recoil';
 
@@ -15,6 +16,7 @@ import { userNickname, modalAtom } from '@/store/atom';
 import { SERVICES } from '@/constants/index';
 import { getLocalstorage } from '@/utils';
 import MyPage from '@/components/features/MyPage';
+import PlustBtn from '../../public/services_logo/iconPlus.svg';
 import * as S from '../styles/modalStyled';
 
 interface ISelectedServiceData {
@@ -84,6 +86,8 @@ const HomePage: NextPage = () => {
     }));
   };
 
+  const [isHover, setIsHover] = useState(false);
+
   return (
     <div>
       {nickname ? (
@@ -92,7 +96,12 @@ const HomePage: NextPage = () => {
           {isMain ? (
             <div>
               <CalendarContainer>
-                <AddDataButton onClick={onClick}>+</AddDataButton>
+                <AddDataButton onClick={onClick}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5V19" stroke="#D9FD89" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M5 12H19" stroke="#D9FD89" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </AddDataButton>
               </CalendarContainer>
             </div>
           ) : (
