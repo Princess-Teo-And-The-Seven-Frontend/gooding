@@ -2,6 +2,7 @@ import { Palette } from '@/constants';
 import styled from '@emotion/styled';
 
 export const Container = styled.section`
+  position: relative;
   width: 100%;
   height: 100vh;
   background-image: url('./introduce/gooding_background.jpeg');
@@ -107,4 +108,12 @@ export const Input = styled.input`
   &::placeholder {
     text-align: center;
   }
+`;
+
+export const ArrowBottom = styled.img`
+  position: absolute;
+  left: 50%;
+  bottom: 200px;
+  transform: translate(-50%, 0);
+  width: 50px;
 `;

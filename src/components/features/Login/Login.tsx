@@ -55,6 +55,7 @@ export const Login = () => {
               구딩 이용하기
             </SubmitButton>
           </S.Form>
+          <S.ArrowBottom src="arrow_bottom.png" alt="arrow_bottom" />
         </S.Wrapper>
       </S.Container>
       <Introduce />
