@@ -26,6 +26,8 @@ export const NameText = styled.p`
   font-size: 24px;
   font-weight: 700;
   font-line: 16px;
+  word-break: keep-all; 
+  width: 110px;
 `;
 
 export const CostText = styled.p`
