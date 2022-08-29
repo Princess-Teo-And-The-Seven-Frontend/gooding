@@ -44,7 +44,8 @@ export const CalendarDateHeader = ({ label }: LabelProps) => {
 
   const onClick = (title: string) => {
     Swal.fire({
-      title: '구딩을 잘 이용하고 계신가요? 유료로 전환하세요!',
+      title: '구딩을 잘 이용하고 계신가요?',
+      text: '유료로 전환하세요!',
       icon: 'warning',
       confirmButtonText: '확인',
     });
