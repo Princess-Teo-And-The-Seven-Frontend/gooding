@@ -100,7 +100,7 @@ const HomePage: NextPage = () => {
           )}
           {modalState.isOpen
           && !(modalState.isWorning.hasSubscribe || modalState.isWorning.isDuplicate) && (
-          <Modal width={1390} height={805}>
+            <Modal width={1000} height={600}>
             <S.SubScribeContainer>
               {!modalState.isClicked ? (
                 <>
@@ -138,7 +138,7 @@ const HomePage: NextPage = () => {
           </Modal>
           )}
           {(modalState.isWorning.hasSubscribe || modalState.isWorning.isDuplicate) && (
-            <Modal width={1390} height={805}>
+            <Modal width={1000} height={600}>
               {modalState.isWorning.isDuplicate && <div>중복된 구독서비스가 존재해요!</div>}
               {modalState.isWorning.hasSubscribe && <div>구독정보가 등록되지 않았어요</div>}
               {/* {modalState.isWorning.isTerminate && <div>실제 구독 서비스의 해지는 홈페이지에서 진행해야 해요!</div>} */}

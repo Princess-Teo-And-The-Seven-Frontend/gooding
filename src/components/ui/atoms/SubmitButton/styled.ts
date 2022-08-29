@@ -8,10 +8,11 @@ interface ISubmitButton {
 }
 
 export const SubmitBtn = styled.button<ISubmitButton>`
-  width: auto;
+  min-width: 100px;
   height: 30px;
-  padding: 0px 10px;
+  padding: 8px;
   font-weight: 600;
+  font-size: 16px;
   color: ${({ color }) => color};
   background-color: ${({ backgroundColor }) => backgroundColor};
   cursor: pointer;
