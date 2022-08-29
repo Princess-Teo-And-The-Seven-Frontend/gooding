@@ -86,8 +86,6 @@ const HomePage: NextPage = () => {
     }));
   };
 
-  const [isHover, setIsHover] = useState(false);
-
   return (
     <div>
       {nickname ? (
