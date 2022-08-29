@@ -2,16 +2,11 @@ import { Palette } from '@/constants';
 import styled from '@emotion/styled';
 
 export const Container = styled.section`
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   width: 100%;
   height: 100vh;
-  // background-color: #7d70fa;
-
-  .area {
-    // background-color: #7d70fa;
-  }
+  background-image: url('./introduce/gooding_background.jpeg');
+  background-position: top;
+  background-size: cover;
 `;
 
 export const IntroducTitleText = styled.div`
