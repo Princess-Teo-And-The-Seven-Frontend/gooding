@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import { Modal } from '@/components/ui/organisms/Modal/Modal';
 import Tag from '@/components/ui/atoms/Tag';
 import { useEffect, useState } from 'react';
+import AddDataButton from '@/components/ui/atoms/AddDataButton';
 import Button from '@/components/ui/atoms/Button';
 import Form from '@/components/ui/organisms/Form/Form';
 import ServiceDetail from '@/components/ui/organisms/ServiceDetail/ServiceDetail';
@@ -90,8 +91,9 @@ const HomePage: NextPage = () => {
           <Header isMain={isMain} setIsMain={setIsMain} />
           {isMain ? (
             <div>
-              <CalendarContainer />
-              <Button onClick={onClick}>Open</Button>
+              <CalendarContainer>
+                <AddDataButton onClick={onClick}>+</AddDataButton>
+              </CalendarContainer>
             </div>
           ) : (
             <MyPage />
