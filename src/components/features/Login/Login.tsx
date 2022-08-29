@@ -66,7 +66,8 @@ export const Login = () => {
                 결제 예정일을
                 <br />
                 한눈에
-                <br />볼 수 있어요!
+                <br />
+                볼 수 있어요!
               </S.IntroducMainPageeText>
             </S.IntroducTitleText>
             <S.Img src="/introduce/main_page.png" alt="메인페이지 설명" />

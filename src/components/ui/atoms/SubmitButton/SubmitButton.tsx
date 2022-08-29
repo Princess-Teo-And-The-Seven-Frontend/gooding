@@ -11,7 +11,9 @@ interface IProps {
   fontSize?: string;
 }
 
-export const SubmitButton: React.FC<IProps> = ({ children, width, height, padding, fontSize }) => (
+export const SubmitButton: React.FC<IProps> = ({
+  children, width, height, padding, fontSize,
+}) => (
   <S.SubmitBtn
     type="submit"
     backgroundColor="#000000"
