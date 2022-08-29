@@ -22,14 +22,16 @@ export const Input = styled.input`
 export const Title = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
   cursor: default;
 `;
 
-export const ErrorMessage = styled.span`
+export const ErrorMessage = styled.p`
   color: red;
   font-size: 0.75rem;
-  margin-bottom: 0.5rem;
+  height: 1rem;
+  margin-bottom: 0.25rem;
+  box-sizing: border-box;
 `;
 
 export const ButtonContainer = styled.div`

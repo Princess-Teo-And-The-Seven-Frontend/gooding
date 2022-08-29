@@ -11,7 +11,7 @@ import Button from '../../atoms/Button';
 interface IForm {
   price: string;
   memo: string;
-  date: Date;
+  date: string;
   message: string;
   cycle: string;
 }
@@ -36,6 +36,7 @@ function Form({ serviceData }: IFormData) {
     formState: { errors },
   } = useForm<IForm>({
     defaultValues: {
+      date: new Date().toISOString().split('T')[0],
       price: serviceData?.subscriptionFee.toString(),
     },
   });
@@ -109,19 +110,14 @@ function Form({ serviceData }: IFormData) {
           },
         })}
       />
-      {errors.date?.type === 'required' && <S.ErrorMessage>결제일을 입력해주세요</S.ErrorMessage>}
+      <S.ErrorMessage>{errors.date?.type === 'required' && '결제일을 입력해주세요'}</S.ErrorMessage>
       <S.Title>결제주기</S.Title>
-      <S.Input id="cycle" as="select" {...register('cycle')}>
-        <option value="1주일">1주일</option>
+      <S.Input id="cycle" as="select" {...register('cycle')} style={{ marginBottom: '1.75rem' }}>
         <option value="1개월">1개월</option>
-        <option value="3개월">3개월</option>
-        <option value="6개월">6개월</option>
-        <option value="1년">1년</option>
       </S.Input>
       <S.Title>결제금액</S.Title>
       <S.Input
         id="price"
-        step="10"
         type="number"
         {...register('price', {
           required: {
@@ -130,10 +126,10 @@ function Form({ serviceData }: IFormData) {
           },
         })}
       />
-      {errors.price && <S.ErrorMessage>결제금액을 입력해주세요.</S.ErrorMessage>}
+      <S.ErrorMessage>{errors.price?.type === 'required' && '결제금액을 입력해주세요.'}</S.ErrorMessage>
 
       <S.Title>메모</S.Title>
-      <S.Input as="textarea" id="memo" {...register('memo')} />
+      <S.Input as="textarea" id="memo" {...register('memo')} style={{ paddingBottom: '0' }} />
       <S.ButtonContainer>
         <SubmitButton padding="0px" height="30px" width="100px">
           등록
