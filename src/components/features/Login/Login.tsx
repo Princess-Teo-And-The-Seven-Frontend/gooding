@@ -48,7 +48,9 @@ export const Login = () => {
         </S.TitleText>
         <S.Form onSubmit={handleSubmit(SubmitNickname)}>
           <S.Input placeholder="닉네임을 입력해주세요" {...register('nickname')} />
-          <SubmitButton>구딩 이용하기</SubmitButton>
+          <SubmitButton fontSize="1.5rem" padding="8px 10px">
+            구딩 이용하기
+          </SubmitButton>
         </S.Form>
         <Fade bottom>
           <S.IntroduceMainPageWrapper className="area">

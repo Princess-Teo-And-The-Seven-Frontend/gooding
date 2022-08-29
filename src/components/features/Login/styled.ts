@@ -83,6 +83,7 @@ export const Input = styled.input`
   padding: 8px 10px;
   font-weight: 600;
   font-size: 1.5rem;
+  margin-bottom: 8px;
   &::placeholder {
     text-align: center;
     // position: absolute;

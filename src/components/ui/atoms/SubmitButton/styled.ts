@@ -5,21 +5,24 @@ interface ISubmitButton {
   color: string;
   hoverBackgroundColor: string;
   hoverColor: string;
+  width: string;
+  height: string;
+  padding: string;
+  fontSize: string;
 }
 
 export const SubmitBtn = styled.button<ISubmitButton>`
-  width: auto;
-  // height: 30px;
-  padding: 8px 10px;
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  padding: ${({ padding }) => padding};
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: ${({ fontSize }) => fontSize};
   color: ${({ color }) => color};
   background-color: ${({ backgroundColor }) => backgroundColor};
   cursor: pointer;
   text-align: center;
   align-items: center;
   border-radius: 20px;
-  margin-top: 8px;
   &:hover {
     color: ${({ hoverColor }) => hoverColor};
     background-color: ${({ hoverBackgroundColor }) => hoverBackgroundColor};
