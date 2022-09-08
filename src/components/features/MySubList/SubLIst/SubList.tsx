@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoImage from '@components/ui/atoms/LogoImage';
+import HoverImage from '@components/ui/molecules/HoverImage';
 import { ServiceDataType } from '@/types/dataType';
 
 import * as S from './styled';
@@ -16,14 +16,12 @@ const SubList: React.FC<IProps> = ({ userData }) => {
     <div>
       <S.SubsContainer>
         {userData?.map((item) => (
-          <LogoImage
+          <HoverImage
             key={item.id}
             src={item.image}
             name={item.name}
             price={+item.price}
             cycle={item.cycle}
-            shape="hover"
-            size={170}
             onClick={() => handleLogoClick(item.name)}
           />
         ))}
