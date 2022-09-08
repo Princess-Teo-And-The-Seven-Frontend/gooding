@@ -9,3 +9,10 @@ export interface ServiceDataType {
   price: string;
   subscriptionFee: number;
 }
+export interface ISelectedServiceData {
+  id: number;
+  name: string;
+  category: string;
+  subscriptionFee: number;
+  image: string;
+}
