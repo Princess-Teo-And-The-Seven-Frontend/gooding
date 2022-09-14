@@ -1,35 +1,38 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
-import * as S from './styled';
+import Image from 'next/image';
+import styled from '@emotion/styled';
 
 interface IProps {
-  name: string;
   src: string;
-  price: number;
-  shape: string;
   size: number;
-  cycle: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
-
-// 로고 원형 이미지 입니다! 마이페이지 외에는 shape 없이 쓰면 될 것 같습니다!
-
-const LogoImage = ({
-  src, name, price, shape, size, onClick, cycle,
-}: IProps) => {
-  if (shape === 'hover') {
-    return (
-      <S.ImgWrapper onClick={onClick}>
-        <S.ImageCircle size={size} src={src} className="image" />
-        <S.TextOverlay className="text">
-          <S.NameText>{name}</S.NameText>
-          <S.CostText>{`${price}원`}</S.CostText>
-          <S.CycleText>{`(결제주기: ${cycle})`}</S.CycleText>
-        </S.TextOverlay>
-      </S.ImgWrapper>
-    );
+// next/image 커스텀이 굉장히.. 힘드네요
+const ImageContainer = styled.div`
+  border-radius: 70%;
+  overflow: hidden;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s;
   }
+`;
 
-  return <S.ImageCircle size={size} src={src} className="image" onClick={onClick} />;
-};
+const LogoImage = ({ src, size, onClick }: IProps) => (
+  <ImageContainer onClick={onClick}>
+    <Image
+      src={src}
+      alt="사진"
+      width={size}
+      height={size}
+      objectFit="cover"
+      layout="responsive"
+      placeholder="blur"
+      blurDataURL={src}
+    />
+  </ImageContainer>
+);
 
 export default LogoImage;
