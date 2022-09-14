@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import Button from '@/components/ui/atoms/Button';
 import Form from '@/components/ui/organisms/Form/Form';
 import Tag from '@/components/ui/atoms/Tag';
@@ -7,11 +7,12 @@ import { SERVICES } from '@/constants/index';
 import ServiceDetail from '@/components/ui/organisms/ServiceDetail/ServiceDetail';
 import { ISelectedServiceData } from '@/types/dataType';
 import LogoImage from '@/components/ui/atoms/LogoImage';
+import { IModalAtom } from '@/store/atom';
 import * as S from './styled';
 
 interface IProps {
-  modalState: any;
-  setModalState: any;
+  modalState: IModalAtom;
+  setModalState: Dispatch<SetStateAction<IModalAtom>>;
 }
 
 const AddModal = ({ modalState, setModalState }: IProps) => {
@@ -40,11 +41,11 @@ const AddModal = ({ modalState, setModalState }: IProps) => {
         setSelectedServiceData(selectedService);
       }
     });
-    setModalState((prev: any) => ({ ...prev, isClicked: true }));
+    setModalState((prev) => ({ ...prev, isClicked: true }));
   };
 
   const onClick = () => {
-    setModalState((prev: any) => ({
+    setModalState((prev) => ({
       ...prev,
       isOpen: !modalState.isOpen,
       selectedCategory: '비디오',
@@ -52,11 +53,11 @@ const AddModal = ({ modalState, setModalState }: IProps) => {
   };
 
   const onClickFilter = (category: string) => {
-    setModalState((prev: any) => ({ ...prev, selectedCategory: category }));
+    setModalState((prev) => ({ ...prev, selectedCategory: category }));
   };
 
   const clearState = () => {
-    setModalState((prev: any) => ({
+    setModalState((prev) => ({
       ...prev,
       isOpen: false,
       isClicked: false,
